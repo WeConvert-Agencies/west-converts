@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--
+  impeccable:direction-contract
+  Compressed run (1-hour deadline, client call): two known directions from a prior
+  curated set, not an open concept tournament. Craft-floor checklist applied; full
+  concept-seed/decision-page/finish-reviewer pipeline skipped and disclosed to the user.
+
+  OPTION A — "Hero-Centric / High-Conversion"
+  THESIS: proof before persuasion — the real numbers (5.0★, 36 reviews, 5+ years,
+  Longmont) sit next to the call button, not buried in a footer.
+  OWN-WORLD: ink navy + warm white + a single paint-can orange, Space Grotesk display
+  over DM Sans body, hairline rules, no cards, no icon rows.
+  FIRST VIEWPORT: split hero, left copy + single CTA + plain-text proof line, right
+  full-bleed placeholder exterior photo, labeled as a sample.
+  FINISH: unreviewed and undocumented is unfinished — this build ends with a batched
+  screenshot check, not a formal finish-reviewer pass (compressed run, disclosed).
+
+  OPTION B — "Nature Distilled / Warm & Organic"
+  THESIS: the palette IS the pitch — a literal swatch strip stands in for photos
+  H&H doesn't have yet, doing the "we handle color" claim visually.
+  OWN-WORLD: terracotta / warm clay / sand / soft cream, Fraunces display over
+  Instrument Sans body, soft organic radii, no gradients, no glass.
+  FIRST VIEWPORT: centered editorial composition, swatch strip behind the headline,
+  placeholder interior photo in a soft-framed panel, labeled as a sample.
+  FINISH: same compressed-run note as Option A.
+-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H&amp;H Painting — Hero Concepts (Draft)</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,500&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --tool-bg:#0B0D10;
+    --tool-fg:#E7E9EA;
+    --tool-line:#23262A;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;font-family:'DM Sans',sans-serif;}
+  img,svg{max-width:100%;display:block;}
+  ::selection{background:#F4681E;color:#fff;}
+
+  /* ---------- tool chrome (not part of either design; a reviewer's rail) ---------- */
+  .tool-bar{
+    position:sticky;top:0;z-index:50;
+    display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+    background:var(--tool-bg);color:var(--tool-fg);
+    padding:10px 20px;font-family:'DM Sans',sans-serif;font-size:13px;
+    border-bottom:1px solid var(--tool-line);
+  }
+  .tool-bar strong{font-weight:700;}
+  .tool-bar .sep{color:#555;}
+  .tool-bar a{color:var(--tool-fg);text-decoration:none;border-bottom:1px solid #555;padding-bottom:1px;}
+  .tool-bar a:hover{border-color:#F4681E;color:#fff;}
+  .tool-bar .note{margin-left:auto;color:#9AA0A6;font-size:12px;}
+
+  .option-label{
+    font-family:'DM Sans',sans-serif;
+    font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+    padding:14px 20px;color:#9AA0A6;background:#111;
+  }
+
+  /* ============================================================
+     OPTION A — Hero-Centric / High-Conversion
+     ============================================================ */
+  .optA{
+    --ink:#122236;
+    --ink-2:#1B2E48;
+    --paper:#F7F5F0;
+    --orange:#F4681E;
+    --orange-ink:#7A2E0C;
+    --line:rgba(18,34,54,.14);
+    --text:#122236;
+    --text-soft:#4A5A6C;
+    background:var(--paper);
+    color:var(--text);
+  }
+  @media (prefers-color-scheme: dark){
+    .optA{
+      --ink:#0D1826;
+      --paper:#0F1720;
+      --line:rgba(231,233,234,.14);
+      --text:#EDEFF1;
+      --text-soft:#A9B4BF;
+    }
+  }
+  .optA .hero{
+    display:grid;
+    grid-template-columns:1.05fr 1fr;
+    min-height:92vh;
+  }
+  .optA .hero-copy{
+    display:flex;flex-direction:column;justify-content:center;
+    padding:clamp(28px,6vw,88px);
+    max-width:640px;
+  }
+  .optA .mark{
+    font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;
+    letter-spacing:-0.01em;color:var(--text-soft);margin-bottom:clamp(28px,8vh,64px);
+  }
+  .optA h1{
+    font-family:'Space Grotesk',sans-serif;font-weight:600;
+    font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.05;letter-spacing:-0.02em;
+    margin:0 0 22px;color:var(--text);
+  }
+  .optA h1 em{font-style:normal;color:var(--orange);}
+  .optA .sub{
+    font-size:clamp(1.02rem,1.6vw,1.2rem);line-height:1.55;color:var(--text-soft);
+    max-width:52ch;margin:0 0 34px;
+  }
+  .optA .cta-row{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-bottom:30px;}
+  .optA .cta{
+    display:inline-flex;align-items:center;gap:10px;
+    background:var(--orange);color:#fff;
+    font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1.05rem;
+    padding:16px 28px;border-radius:8px;text-decoration:none;
+    box-shadow:0 10px 24px -8px rgba(244,104,30,.55);
+    transition:transform .18s cubic-bezier(.2,.8,.2,1),box-shadow .18s cubic-bezier(.2,.8,.2,1);
+  }
+  .optA .cta:hover{transform:translateY(-2px);box-shadow:0 14px 30px -8px rgba(244,104,30,.65);}
+  .optA .cta:focus-visible{outline:3px solid var(--orange-ink);outline-offset:3px;}
+  .optA .cta svg{width:18px;height:18px;}
+  .optA .proof{
+    display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;
+    font-size:.92rem;color:var(--text-soft);
+    padding-top:22px;border-top:1px solid var(--line);
+  }
+  .optA .proof b{color:var(--text);font-weight:700;}
+  .optA .proof .stars{color:var(--orange);letter-spacing:1px;}
+  .optA .proof .dot{color:var(--line);}
+  .optA .hero-photo{
+    position:relative;min-height:320px;
+    background:linear-gradient(180deg,var(--ink),var(--ink-2));
+  }
+  .optA .hero-photo img{
+    width:100%;height:100%;object-fit:cover;position:absolute;inset:0;
+  }
+  .optA .photo-tag{
+    position:absolute;left:16px;bottom:16px;
+    background:rgba(15,20,27,.78);color:#EDEFF1;
+    font-size:11.5px;letter-spacing:.03em;
+    padding:7px 11px;border-radius:6px;
+    font-family:'DM Sans',sans-serif;
+  }
+  @media (max-width:860px){
+    .optA .hero{grid-template-columns:1fr;min-height:auto;}
+    .optA .hero-photo{order:-1;height:46vh;}
+    .optA .hero-copy{max-width:none;padding:36px 22px 44px;}
+  }
+
+  /* ============================================================
+     OPTION B — Nature Distilled / Warm & Organic
+     ============================================================ */
+  .optB{
+    --terracotta:#C67B5C;
+    --clay:#B5651D;
+    --sand:#D9C7A8;
+    --cream:#F6EFE3;
+    --olive:#6B7B3C;
+    --text:#3A2E22;
+    --text-soft:#6B5D4C;
+    background:var(--cream);
+    color:var(--text);
+  }
+  @media (prefers-color-scheme: dark){
+    .optB{
+      --cream:#211B15;
+      --sand:#3A2F22;
+      --text:#F3E9DA;
+      --text-soft:#C7B79E;
+    }
+  }
+  .optB .hero{
+    min-height:92vh;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    padding:clamp(48px,9vw,96px) clamp(24px,6vw,64px);
+    text-align:center;
+  }
+  .optB .swatches{
+    display:flex;gap:10px;margin-bottom:clamp(32px,7vh,56px);
+  }
+  .optB .swatch{width:38px;height:38px;border-radius:10px;box-shadow:0 3px 8px -2px rgba(58,46,34,.35);}
+  .optB h1{
+    font-family:'Fraunces',serif;font-weight:500;font-optical-sizing:auto;
+    font-size:clamp(2.1rem,5.6vw,3.9rem);line-height:1.08;letter-spacing:-0.01em;
+    max-width:16ch;margin:0 0 26px;color:var(--text);
+  }
+  .optB h1 em{font-style:italic;color:var(--clay);}
+  .optB .sub{
+    font-family:'Instrument Sans',sans-serif;
+    font-size:clamp(1.02rem,1.7vw,1.22rem);line-height:1.6;color:var(--text-soft);
+    max-width:46ch;margin:0 0 36px;
+  }
+  .optB .cta{
+    display:inline-flex;align-items:center;gap:10px;
+    background:var(--clay);color:#FFF7EC;
+    font-family:'Instrument Sans',sans-serif;font-weight:600;font-size:1.02rem;
+    padding:15px 30px;border-radius:100px;text-decoration:none;
+    transition:transform .18s cubic-bezier(.2,.8,.2,1),background .18s ease;
+  }
+  .optB .cta:hover{transform:translateY(-2px);background:#94511A;}
+  .optB .cta:focus-visible{outline:3px solid var(--olive);outline-offset:3px;}
+  .optB .proof{
+    margin-top:26px;font-family:'Instrument Sans',sans-serif;
+    font-size:.95rem;color:var(--text-soft);
+  }
+  .optB .proof b{color:var(--text);font-weight:600;}
+  .optB .photo-wrap{
+    margin-top:clamp(40px,8vh,72px);
+    width:min(560px,88vw);
+    border-radius:22px;overflow:hidden;position:relative;
+    box-shadow:0 24px 48px -20px rgba(58,46,34,.4);
+  }
+  .optB .photo-wrap img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/5;}
+  .optB .photo-tag{
+    position:absolute;left:14px;bottom:14px;
+    background:rgba(58,46,34,.72);color:#F6EFE3;
+    font-family:'Instrument Sans',sans-serif;font-size:11.5px;letter-spacing:.03em;
+    padding:7px 11px;border-radius:8px;
+  }
+
+  footer.tool-foot{
+    background:#111;color:#9AA0A6;font-family:'DM Sans',sans-serif;font-size:12.5px;
+    padding:22px 20px;text-align:center;border-top:1px solid var(--tool-line);
+  }
+  footer.tool-foot a{color:#E7E9EA;}
+</style>
+</head>
+<body>
+
+<div class="tool-bar">
+  <strong>H&amp;H Painting</strong><span class="sep">/</span>Hero concepts — draft for review
+  <a href="#optionA">Option A</a>
+  <a href="#optionB">Option B</a>
+  <span class="note">Placeholder photos &amp; layout only — not the live site</span>
+</div>
+
+<section id="optionA" class="optA">
+  <div class="option-label">Option A — High-Conversion</div>
+  <div class="hero">
+    <div class="hero-copy">
+      <div class="mark">H&amp;H PAINTING</div>
+      <h1>Longmont's <em>5.0★</em> painting crew.</h1>
+      <p class="sub">One phone call gets you a real walkthrough and a straight number. Interior and exterior, done right the first time.</p>
+      <div class="cta-row">
+        <a class="cta" href="tel:+13032101413">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Call Hugo — (303) 210-1413
+        </a>
+      </div>
+      <div class="proof">
+        <span class="stars">★★★★★</span>
+        <span><b>5.0</b> · 36 Google reviews</span>
+        <span class="dot">|</span>
+        <span><b>5+ years</b> in business</span>
+        <span class="dot">|</span>
+        <span>Longmont, CO</span>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="assets/hero-exterior.jpg" alt="Freshly painted home exterior — sample photo for layout purposes">
+      <span class="photo-tag">Sample photo — real job photos to come</span>
+    </div>
+  </div>
+</section>
+
+<section id="optionB" class="optB">
+  <div class="option-label">Option B — Warm &amp; Organic</div>
+  <div class="hero">
+    <div class="swatches">
+      <div class="swatch" style="background:var(--terracotta)"></div>
+      <div class="swatch" style="background:var(--clay)"></div>
+      <div class="swatch" style="background:var(--sand)"></div>
+      <div class="swatch" style="background:var(--cream);border:1px solid rgba(58,46,34,.2)"></div>
+      <div class="swatch" style="background:var(--olive)"></div>
+    </div>
+    <h1>Every wall has a <em>right</em> color. We'll find it.</h1>
+    <p class="sub">H&amp;H Painting has been getting it right in Longmont for 5+ years — 36 neighbors have left five-star reviews to prove it. Interior, exterior, and every shade between.</p>
+    <a class="cta" href="tel:+13032101413">Talk to Hugo — (303) 210-1413</a>
+    <p class="proof"><b>5.0★</b> average across 36 Google reviews · Longmont, Colorado</p>
+    <div class="photo-wrap">
+      <img src="assets/hero-interior.jpg" alt="Freshly painted living room corner — sample photo for layout purposes">
+      <span class="photo-tag">Sample photo — real job photos to come</span>
+    </div>
+  </div>
+</section>
+
+<footer class="tool-foot">
+  Internal review copy for H&amp;H Painting — not published. Photos are AI-generated placeholders standing in for real before/after shots.
+</footer>
+
+</body>
+</html>

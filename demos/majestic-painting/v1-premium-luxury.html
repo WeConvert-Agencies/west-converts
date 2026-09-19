@@ -1,0 +1,162 @@
+<title>Majestic Painting &amp; Remodeling — Premium</title>
+<meta name="description" content="Majestic Painting &amp; Remodeling — interior and exterior painting, drywall, and remodeling serving Fort Lupton, CO.">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,400&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--stone:#EDEAE4;--charcoal:#2B2E33;--terracotta:#C98A55;--dusk:#5B6B7C;--line:#DCD7CC}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Work Sans',system-ui,sans-serif;background:var(--stone);color:var(--charcoal);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:400}
+  a{color:inherit}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+  section{padding:96px 0}
+  img{max-width:100%;display:block}
+
+  .skip-link{position:absolute;left:-999px;background:var(--charcoal);color:var(--stone);padding:12px 18px;z-index:200}
+  .skip-link:focus{left:16px;top:16px}
+  a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--terracotta);outline-offset:2px}
+
+  header{position:sticky;top:0;background:rgba(237,234,228,.92);backdrop-filter:blur(6px);z-index:50;border-bottom:1px solid var(--line)}
+  .header-inner{display:flex;justify-content:space-between;align-items:center;padding:20px 28px;max-width:1180px;margin:0 auto}
+  .wordmark{font-family:'Fraunces',Georgia,serif;font-size:20px;text-transform:lowercase;letter-spacing:.02em}
+  .call-pill{border:1.5px solid var(--charcoal);padding:10px 22px;border-radius:30px;text-decoration:none;font-weight:600;font-size:14px}
+
+  .hero{position:relative;padding:0;min-height:78vh;display:flex;align-items:flex-end;background:linear-gradient(165deg,#3A3630 0%,#5B6B7C 55%,#7C8B98 100%);overflow:hidden}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(20,18,15,.55) 0%,rgba(20,18,15,.1) 55%,transparent 100%)}
+  .hero-inner{position:relative;z-index:2;padding:80px 28px 64px;max-width:1180px;margin:0 auto;width:100%;color:var(--stone)}
+  .badges{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:26px}
+  .badge{background:rgba(237,234,228,.14);border:1px solid rgba(237,234,228,.4);color:var(--stone);font-size:13px;font-weight:600;padding:7px 15px;border-radius:30px;backdrop-filter:blur(3px)}
+  .hero h1{font-size:clamp(38px,6vw,68px);text-transform:lowercase;line-height:1.02;max-width:820px;margin-bottom:22px}
+  .hero p.sub{font-size:19px;max-width:480px;color:#EAE6DD;margin-bottom:32px}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap}
+  .btn{display:inline-flex;padding:15px 28px;border-radius:2px;font-weight:600;font-size:15px;text-decoration:none;border:1.5px solid transparent}
+  .btn-primary{background:var(--terracotta);color:#241A10}
+  .btn-line{border-color:rgba(237,234,228,.6);color:var(--stone)}
+  .photo-note{position:absolute;bottom:18px;right:28px;z-index:3;font-size:12px;color:rgba(237,234,228,.7);max-width:220px;text-align:right}
+
+  .intro{text-align:center}
+  .intro p{font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:clamp(22px,2.8vw,30px);max-width:760px;margin:0 auto;color:#4A443C}
+
+  .services{background:#FFFEFB}
+  .section-title{font-size:clamp(26px,3.2vw,36px);text-transform:lowercase;margin-bottom:12px}
+  .section-sub{color:#6B655B;max-width:520px;margin-bottom:48px}
+  .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  .service-card{background:#FFFEFB;padding:32px 26px}
+  .service-card h3{font-size:19px;margin-bottom:8px;font-weight:400}
+  .service-card p{color:#6B655B;font-size:15px}
+
+  .area{background:var(--charcoal);color:var(--stone)}
+  .area-inner{display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap}
+  .area h2{text-transform:lowercase;font-size:clamp(26px,3vw,34px);max-width:460px}
+  .area p{color:#C9C4B8;margin-top:10px;max-width:420px}
+  .area .btn-primary{background:var(--terracotta);color:#241A10}
+
+  .quote{background:var(--stone)}
+  form{margin-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:18px 22px;max-width:680px}
+  form .full{grid-column:1/-1}
+  label{display:block;font-size:13px;margin-bottom:6px;color:#6B655B}
+  input,select,textarea{width:100%;padding:12px 10px;border:1px solid var(--line);background:#FFFEFB;font-family:inherit;font-size:15px;border-radius:2px}
+  .submit-row{grid-column:1/-1;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+  .form-note{font-size:13px;color:#8A8478;grid-column:1/-1}
+
+  footer{padding:40px 0;font-size:14px;color:#6B655B;border-top:1px solid var(--line)}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  .mobile-call{display:none}
+
+  @media (max-width:820px){.service-grid{grid-template-columns:1fr}}
+  @media (max-width:640px){
+    section{padding:60px 0}
+    form{grid-template-columns:1fr}
+    .mobile-call{display:flex;position:fixed;bottom:0;left:0;right:0;background:var(--charcoal);color:var(--stone);justify-content:center;align-items:center;padding:16px;font-weight:600;text-decoration:none;z-index:60}
+    body{padding-bottom:60px}
+    .photo-note{display:none}
+  }
+</style>
+
+<a class="skip-link" href="#main">Skip to content</a>
+<header>
+  <div class="header-inner">
+    <div class="wordmark">majestic painting &amp; remodeling</div>
+    <a class="call-pill" href="tel:+13038020842">(303) 802-0842</a>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero">
+  <div class="hero-inner">
+    <div class="badges">
+      <span class="badge">Fort Lupton, CO</span>
+      <span class="badge">Locally Owned</span>
+    </div>
+    <h1>painting &amp; remodeling, done the right way</h1>
+    <p class="sub">Enrique and the Majestic crew handle painting and remodeling work across Fort Lupton — the job isn't done until you're happy with it.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="tel:+13038020842">Call For A Free Quote</a>
+      <a class="btn btn-line" href="sms:+13038020842">Text Instead</a>
+    </div>
+  </div>
+  <div class="photo-note">Sample layout — real project photo replaces this background once available.</div>
+</section>
+
+<section class="intro">
+  <div class="wrap">
+    <p>"No job is too big nor small — we're not complete until our customer is happy with the finished job."</p>
+  </div>
+</section>
+
+<section class="services">
+  <div class="wrap">
+    <h2 class="section-title">what we do</h2>
+    <p class="section-sub">Confirm on the call — this list updates to match exactly what Majestic offers.</p>
+    <div class="service-grid">
+      <div class="service-card"><h3>Interior &amp; Exterior Painting</h3><p>Full paint jobs, inside and out.</p></div>
+      <div class="service-card"><h3>Drywall Repair</h3><p>Patch, repair, and finish work.</p></div>
+      <div class="service-card"><h3>Remodeling</h3><p>Tile, siding, windows, gutters.</p></div>
+      <div class="service-card"><h3>Power Washing</h3><p>Exterior surfaces, cleaned right.</p></div>
+      <div class="service-card"><h3>Commercial Painting</h3><p>Local businesses, not just homes.</p></div>
+      <div class="service-card"><h3>Free Estimates</h3><p>Walk the job, get a real number.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="area">
+  <div class="wrap area-inner">
+    <div>
+      <h2>where we work</h2>
+      <p>Serving Fort Lupton, CO and the surrounding area — confirm exact towns on the call.</p>
+    </div>
+    <a class="btn btn-primary" href="tel:+13038020842">Ask If We Cover Your Area</a>
+  </div>
+</section>
+
+<section class="quote">
+  <div class="wrap">
+    <h2 class="section-title">get a quote</h2>
+    <p class="section-sub">This is a presentation demo — the form below isn't connected yet, but call or text works today.</p>
+    <form onsubmit="return false;">
+      <div><label for="q-name">Name</label><input id="q-name" name="name" placeholder="Your name"></div>
+      <div><label for="q-phone">Phone</label><input id="q-phone" name="phone" placeholder="(555) 555-5555"></div>
+      <div class="full"><label for="q-address">Property Address</label><input id="q-address" name="address" placeholder="Street, City"></div>
+      <div class="full"><label for="q-service">Service Type</label>
+        <select id="q-service" name="service"><option>Interior Painting</option><option>Exterior Painting</option><option>Remodeling</option><option>Not Sure</option></select>
+      </div>
+      <div class="submit-row">
+        <button class="btn btn-primary" type="submit">Request A Quote</button>
+        <a class="btn btn-line" href="tel:+13038020842" style="border-color:var(--charcoal);color:var(--charcoal)">Or Just Call</a>
+      </div>
+      <div class="form-note">Presentation demo — form isn't wired to send yet.</div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>Majestic Painting &amp; Remodeling — Fort Lupton, CO</div>
+    <div><a href="tel:+13038020842">(303) 802-0842</a></div>
+  </div>
+</footer>
+<a class="mobile-call" href="tel:+13038020842">Call For A Free Quote</a>
