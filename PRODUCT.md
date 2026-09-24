@@ -44,14 +44,17 @@ the contact form at the bottom of the page.
 - Never use "AI-powered" or "AI-run" as a headline or above-the-fold claim; AI appears only as a
   functional label (AI Receptionist, AI Website Chatbot, AI-assisted reporting).
 - Primary CTA wording sitewide: "Book Your Free Strategy Call".
+- A website is never pitched as a requirement for running ads. No upsell pressure: websites, the
+  receptionist and strategy are offered on their own merits.
 
 ## Evidence on Hand
-- Hot & Cold Mechanical (Longmont, CO): real, live client website, hotncoldmechanical.com; screenshot
-  embedded in the site. Only client logo cleared for the logo strip.
+- Hot & Cold Mechanical (Longmont, CO): real client, live website at hotncoldmechanical.com. Shown only
+  as a logo in the "You're in good company" band: no screenshot, spotlight card or live-site link, so
+  one client doesn't get outsized attention. Only client logo cleared so far.
 - No testimonials, results, client counts, stats or years in business exist yet. Do not fabricate them;
   testimonial slots stay clearly marked placeholders.
 - No original technician photography in the repo yet; the hero photo is a labeled placeholder until
-  real Hot & Cold photos are supplied.
+  real technician photos are supplied.
 
 ## Product Principles
 1. Earn trust before asking for anything: proof and plain answers over claims.
