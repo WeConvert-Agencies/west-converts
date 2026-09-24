@@ -34,6 +34,11 @@ def main():
     # read on the internet.
     ap.add_argument("--search", action="store_true",
                     help="enable Codex's web_search tool (research tasks only)")
+    # Pinned per task instead of inherited from ~/.codex/config.toml, so a task's reasoning
+    # depth is recorded in the log rather than depending on whatever the config said that day.
+    ap.add_argument("--effort", default=None,
+                    choices=["minimal", "low", "medium", "high", "xhigh", "max", "ultra"],
+                    help="model_reasoning_effort for this run")
     a = ap.parse_args()
 
     spec = os.path.join(REPO, "codex", "specs", f"{a.slug}.md")
@@ -56,11 +61,14 @@ def main():
            "--json", "--output-last-message", last]
     if a.search:
         cmd += ["-c", "tools.web_search=true"]
+    if a.effort:
+        cmd += ["-c", f'model_reasoning_effort="{a.effort}"']
     if a.model:
         cmd += ["--model", a.model]
     cmd.append(prompt)
 
     print(f"[run-task] {a.slug} model={a.model or 'default'} sandbox={a.sandbox}"
+          f" effort={a.effort or 'config default'}"
           f"{' web_search=on' if a.search else ''}", flush=True)
     with open(jsonl, "w", encoding="utf-8") as log:
         try:
