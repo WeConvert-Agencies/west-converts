@@ -1,0 +1,111 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>West Converts — Stage 1: palette + type</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0A0A0A;--card:#171717;--lineD:#2E2E2E;--onD:#FAFAFA;--onD2:#A3A3A3;--paper:#FFFFFF;--paper2:#F5F5F4;--lineL:#E5E5E5;--text:#0A0A0A;--text2:#525252;--red:#B91C1C;--red2:#991B1B;--redT:#D85A5A;--uiD:#737373;--uiL:#8A8A8A;
+--f:'Archivo',-apple-system,'Segoe UI',sans-serif;--ease:cubic-bezier(.16,1,.3,1)}
+*{box-sizing:border-box}body{margin:0;font-family:var(--f);font-size:17px;line-height:1.6;background:var(--ink);color:var(--onD);-webkit-font-smoothing:antialiased}
+.wrap{max-width:1200px;margin:0 auto;padding:0 40px}
+section{padding:72px 0}
+.dark{background:var(--ink);color:var(--onD)}.light{background:var(--paper);color:var(--text)}.light2{background:var(--paper2);color:var(--text)}
+.cap{font-size:13px;font-weight:600;color:var(--onD2);margin:0 0 20px} .light .cap,.light2 .cap{color:var(--text2)}
+h1,h2,h3{margin:0;font-weight:800;letter-spacing:-.028em;line-height:1.04;text-wrap:balance}
+.d1{font-size:56px} .d2{font-size:44px;letter-spacing:-.024em;line-height:1.08} .d3{font-size:24px;font-weight:700;letter-spacing:-.012em;line-height:1.25}
+.lede{font-size:19px;line-height:1.55;color:var(--onD2);max-width:40rem;margin-top:20px}
+.b{font-size:17px;max-width:40rem} .s{font-size:15px} .m{font-size:13px}
+.accent{color:var(--red)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.sw{border-radius:12px;padding:16px;min-height:118px;display:flex;flex-direction:column;gap:2px;border:1px solid rgba(128,128,128,.25)}
+.sw b{font-size:15px} .sw span{font-size:13px;opacity:.85} .sw em{font-style:normal;font-size:13px;margin-top:auto;opacity:.85}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 24px;border-radius:10px;font:600 16px/1 var(--f);text-decoration:none;border:1px solid transparent;cursor:pointer}
+.btn-red{background:var(--red);color:#fff} .btn-red.h{background:var(--red2)}
+.btn-ghostD{background:transparent;color:var(--onD);border-color:var(--uiD)} .btn-ghostL{background:transparent;color:var(--text);border-color:var(--uiL)}
+.focusD{outline:2px solid var(--onD);outline-offset:3px} .focusL{outline:2px solid var(--text);outline-offset:3px}
+.row{display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+.state{font-size:12px;color:var(--onD2);display:block;margin-top:8px} .light .state{color:var(--text2)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.cardD{background:var(--card);border:1px solid var(--lineD);border-radius:16px;padding:28px}
+.cardL{background:#fff;border:1px solid var(--lineL);border-radius:16px;padding:28px;box-shadow:0 1px 2px rgba(10,10,10,.04),0 12px 32px -16px rgba(10,10,10,.18)}
+.ic{width:44px;height:44px;border-radius:10px;display:grid;place-items:center;margin-bottom:18px}
+.cardD .ic{background:rgba(185,28,28,.14);color:var(--redT);border:1px solid rgba(185,28,28,.35)} .cardL .ic{background:#FEF2F2;color:var(--red);border:1px solid #FECACA}
+.cardD p{color:var(--onD2);font-size:15px;margin:10px 0 0} .cardL p{color:var(--text2);font-size:15px;margin:10px 0 0}
+.link{display:inline-block;margin-top:16px;font-weight:600;font-size:15px} .cardD .link{color:var(--redT)} .cardL .link{color:var(--red)}
+table{width:100%;border-collapse:collapse;font-size:14px} td{padding:9px 10px;border-bottom:1px solid var(--lineL);vertical-align:middle} td.num{font-variant-numeric:tabular-nums;font-weight:600}
+.chip{display:inline-grid;place-items:center;width:40px;height:28px;border-radius:6px;border:1px solid;font-weight:700}
+.nav{display:flex;align-items:center;gap:28px;height:72px;padding:0 24px;border:1px solid var(--lineD);border-radius:14px;background:rgba(10,10,10,.85)}
+.nav .brand{font-weight:800;font-size:19px;letter-spacing:-.02em} .nav a.n{color:var(--onD2);text-decoration:none;font-size:15px;font-weight:500} .nav a.n.cur{color:var(--onD);box-shadow:inset 0 -2px 0 var(--red)}
+.nav .btn{margin-left:auto}
+.bubble{width:60px;height:60px;border-radius:50%;background:var(--red);display:grid;place-items:center;color:#fff;box-shadow:0 0 0 1px rgba(255,255,255,.14),0 10px 24px -8px rgba(185,28,28,.6)}
+.glow{position:relative;overflow:hidden;border-radius:18px;padding:64px 48px;background:var(--ink);isolation:isolate}
+.glow::before{content:"";position:absolute;inset:-20% 30% 20% -10%;z-index:-1;background:radial-gradient(closest-side,rgba(185,28,28,.42),rgba(185,28,28,0));filter:blur(40px)}
+</style></head><body>
+
+<section class="dark"><div class="wrap">
+<p class="cap">STAGE 1 · PALETTE + TYPOGRAPHY — for approval, not the live site</p>
+<div class="glow">
+<h1 class="d1">We help your trade business get more <span class="accent">booked jobs</span>.</h1>
+<p class="lede">Meta and Google ads are what we do best — backed by the websites and AI receptionists that turn every click into a call. Built for HVAC, roofing, plumbing and electrical businesses who want a straight answer, not a sales pitch.</p>
+<div class="row" style="margin-top:32px"><a class="btn btn-red" href="#">Book Your Free Strategy Call →</a><a class="btn btn-ghostD" href="#">See how it works</a></div>
+<p class="s" style="color:var(--onD2);margin-top:16px">Every project is overseen by our founder.</p>
+</div>
+<p class="m" style="color:var(--onD2);margin-top:10px">Hero type at 56px / Archivo 800 / −0.028em. Red on "booked jobs" is #B91C1C at display size (3.06:1, passes large-text AA). Photo, grain and final glow come in stage 2.</p>
+</div></section>
+
+<section class="dark" style="padding-top:0"><div class="wrap">
+<p class="cap">NAV (sticky) + CHAT BUBBLE</p>
+<div class="row" style="gap:24px;align-items:center"><div class="nav" style="flex:1"><span class="brand">West Converts</span><a class="n cur" href="#">Services</a><a class="n" href="#">How it works</a><a class="n" href="#">Why us</a><a class="n" href="#">FAQ</a><a class="btn btn-red" href="#">Book Your Free Strategy Call</a></div>
+<div class="bubble" aria-label="Chat"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 01-11.6 7.1L4 20l1-4.6A8 8 0 1121 12z"/></svg></div></div>
+</div></section>
+
+<section class="dark" style="padding-top:0"><div class="wrap">
+<p class="cap">PALETTE</p>
+<div class="grid">
+<div class="sw" style="background:#0A0A0A;color:#FAFAFA"><b>Charcoal</b><span>#0A0A0A</span><em>Page ground (dark)</em></div><div class="sw" style="background:#171717;color:#FAFAFA"><b>Raised</b><span>#171717</span><em>Cards on dark</em></div><div class="sw" style="background:#2E2E2E;color:#FAFAFA"><b>Hairline</b><span>#2E2E2E</span><em>Borders on dark</em></div><div class="sw" style="background:#FAFAFA;color:#0A0A0A"><b>Soft white</b><span>#FAFAFA</span><em>Text on dark</em></div>
+<div class="sw" style="background:#A3A3A3;color:#0A0A0A"><b>Mist</b><span>#A3A3A3</span><em>Secondary text on dark</em></div><div class="sw" style="background:#FFFFFF;color:#0A0A0A"><b>White</b><span>#FFFFFF</span><em>Light sections</em></div><div class="sw" style="background:#F5F5F4;color:#0A0A0A"><b>Stone</b><span>#F5F5F4</span><em>Alt light sections</em></div><div class="sw" style="background:#525252;color:#FFFFFF"><b>Graphite</b><span>#525252</span><em>Secondary text on light</em></div>
+<div class="sw" style="background:#B91C1C;color:#FFFFFF"><b>Brick red</b><span>#B91C1C</span><em>Buttons, active states, fills</em></div><div class="sw" style="background:#991B1B;color:#FFFFFF"><b>Deep brick</b><span>#991B1B</span><em>Hover / pressed</em></div><div class="sw" style="background:#D85A5A;color:#0A0A0A"><b>Ember</b><span>#D85A5A</span><em>Small red text & icons on dark</em></div><div class="sw" style="background:#FEF2F2;color:#991B1B"><b>Red tint</b><span>#FEF2F2</span><em>Active chip on light</em></div>
+</div></div></section>
+
+<section class="light"><div class="wrap">
+<p class="cap">TYPE SCALE — ARCHIVO (one family)</p>
+<h2 class="d2">Section headline, 44px / 800</h2>
+<h3 class="d3" style="margin-top:22px">Card or step title, 24px / 700</h3>
+<p class="b" style="margin-top:14px">Body copy at 17px / 400 / 1.6 line height. Written for a trades owner reading on a phone between jobs: short sentences, plain words, one idea per paragraph.</p>
+<p class="s" style="color:var(--text2)">Supporting text, 15px / 400 — card descriptions, captions, form help.</p>
+<p class="m" style="color:var(--text2)">Fine print, 13px / 500 — legal, footnotes. Never used for anything the visitor must read to act.</p>
+<p class="m" style="color:var(--text2);margin-top:14px">Mobile: hero 38px, section headline 30px, body stays 17px.</p>
+</div></section>
+
+<section class="dark"><div class="wrap">
+<p class="cap">BUTTONS (dark ground)</p>
+<div class="row">
+<span><a class="btn btn-red" href="#">Book Your Free Strategy Call</a><span class="state">Default</span></span>
+<span><a class="btn btn-red h" href="#">Book Your Free Strategy Call</a><span class="state">Hover / pressed</span></span>
+<span><a class="btn btn-red focusD" href="#">Book Your Free Strategy Call</a><span class="state">Keyboard focus</span></span>
+<span><a class="btn btn-ghostD" href="#">See how it works</a><span class="state">Secondary</span></span>
+</div>
+<p class="cap" style="margin-top:44px">CARDS ON DARK</p>
+<div class="cards">
+<div class="cardD"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15v-4a2 2 0 012-2h2l7-4v16l-7-4H5a2 2 0 01-2-2z"/><path d="M18 9.5a4 4 0 010 5"/></svg></div><h3 class="d3">Meta &amp; Google Ads</h3><p>Paid ads pointed at the work you want more of, adjusted every month.</p><a class="link" href="#">Book Your Free Strategy Call →</a></div>
+<div class="cardD"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="15" rx="2.5"/><path d="M2.5 8.5h19"/></svg></div><h3 class="d3">Landing Pages</h3><p>The page each ad points to, built to turn a click into a call.</p><a class="link" href="#">Custom quote</a></div>
+<div class="cardD"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div><h3 class="d3">Tracking &amp; Reporting</h3><p>Monthly reporting on calls, forms and spend, with AI-assisted analysis.</p><a class="link" href="#">Custom quote</a></div>
+</div></div></section>
+
+<section class="light2"><div class="wrap">
+<p class="cap">BUTTONS + CARDS ON LIGHT</p>
+<div class="row" style="margin-bottom:28px">
+<span><a class="btn btn-red" href="#">Book Your Free Strategy Call</a><span class="state">Default</span></span>
+<span><a class="btn btn-red focusL" href="#">Book Your Free Strategy Call</a><span class="state">Keyboard focus</span></span>
+<span><a class="btn btn-ghostL" href="#">See how it works</a><span class="state">Secondary</span></span>
+</div>
+<div class="cards">
+<div class="cardL"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a8 8 0 0116 0"/><rect x="2.5" y="11" width="4.5" height="7" rx="2"/><rect x="17" y="11" width="4.5" height="7" rx="2"/></svg></div><h3 class="d3">AI Receptionist</h3><p>Answers every call, books the appointment and texts you the details.</p><a class="link" href="#">Custom quote</a></div>
+<div class="cardL"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 01-11.6 7.1L4 20l1-4.6A8 8 0 1121 12z"/></svg></div><h3 class="d3">AI Website Chatbot</h3><p>Premium add-on for web builds: answers visitor questions on your site.</p><a class="link" href="#">Custom quote</a></div>
+<div class="cardL"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></div><h3 class="d3">Brand &amp; Growth Strategy</h3><p>A clear plan for where your business goes next.</p><a class="link" href="#">Custom quote</a></div>
+</div></div></section>
+
+<section class="light"><div class="wrap">
+<p class="cap">CONTRAST — WCAG 2.1 AA, every pairing this system uses (23/23 pass)</p>
+<table><tr><td>Headline / body on dark</td><td><span class="chip" style="background:#0A0A0A;color:#FAFAFA;border-color:#2E2E2E">Aa</span></td><td>#FAFAFA on #0A0A0A</td><td class="num">18.97:1</td><td>AA ✓</td></tr><tr><td>Headline / body on dark card</td><td><span class="chip" style="background:#171717;color:#FAFAFA;border-color:#2E2E2E">Aa</span></td><td>#FAFAFA on #171717</td><td class="num">17.18:1</td><td>AA ✓</td></tr><tr><td>Secondary text on dark</td><td><span class="chip" style="background:#0A0A0A;color:#A3A3A3;border-color:#2E2E2E">Aa</span></td><td>#A3A3A3 on #0A0A0A</td><td class="num">7.85:1</td><td>AA ✓</td></tr><tr><td>Secondary text on dark card</td><td><span class="chip" style="background:#171717;color:#A3A3A3;border-color:#2E2E2E">Aa</span></td><td>#A3A3A3 on #171717</td><td class="num">7.11:1</td><td>AA ✓</td></tr><tr><td>Red small text on dark</td><td><span class="chip" style="background:#0A0A0A;color:#D85A5A;border-color:#2E2E2E">Aa</span></td><td>#D85A5A on #0A0A0A</td><td class="num">5.21:1</td><td>AA ✓</td></tr><tr><td>Red small text on dark card</td><td><span class="chip" style="background:#171717;color:#D85A5A;border-color:#2E2E2E">Aa</span></td><td>#D85A5A on #171717</td><td class="num">4.72:1</td><td>AA ✓</td></tr><tr><td>Red large headline on dark (≥24px / 19px bold)</td><td><span class="chip" style="background:#0A0A0A;color:#B91C1C;border-color:#2E2E2E">Aa</span></td><td>#B91C1C on #0A0A0A</td><td class="num">3.06:1</td><td>AA ✓ (3:1 rule)</td></tr><tr><td>Headline / body on white</td><td><span class="chip" style="background:#FFFFFF;color:#0A0A0A;border-color:#E5E5E5">Aa</span></td><td>#0A0A0A on #FFFFFF</td><td class="num">19.80:1</td><td>AA ✓</td></tr><tr><td>Headline / body on light gray</td><td><span class="chip" style="background:#F5F5F4;color:#0A0A0A;border-color:#E5E5E5">Aa</span></td><td>#0A0A0A on #F5F5F4</td><td class="num">18.15:1</td><td>AA ✓</td></tr><tr><td>Secondary text on white</td><td><span class="chip" style="background:#FFFFFF;color:#525252;border-color:#E5E5E5">Aa</span></td><td>#525252 on #FFFFFF</td><td class="num">7.81:1</td><td>AA ✓</td></tr><tr><td>Secondary text on light gray</td><td><span class="chip" style="background:#F5F5F4;color:#525252;border-color:#E5E5E5">Aa</span></td><td>#525252 on #F5F5F4</td><td class="num">7.16:1</td><td>AA ✓</td></tr><tr><td>Tertiary / placeholder on white</td><td><span class="chip" style="background:#FFFFFF;color:#737373;border-color:#E5E5E5">Aa</span></td><td>#737373 on #FFFFFF</td><td class="num">4.74:1</td><td>AA ✓</td></tr><tr><td>Red text on white</td><td><span class="chip" style="background:#FFFFFF;color:#B91C1C;border-color:#E5E5E5">Aa</span></td><td>#B91C1C on #FFFFFF</td><td class="num">6.47:1</td><td>AA ✓</td></tr><tr><td>Red text on light gray</td><td><span class="chip" style="background:#F5F5F4;color:#B91C1C;border-color:#E5E5E5">Aa</span></td><td>#B91C1C on #F5F5F4</td><td class="num">5.93:1</td><td>AA ✓</td></tr><tr><td>Dark red on red tint (active chip, light)</td><td><span class="chip" style="background:#FEF2F2;color:#991B1B;border-color:#E5E5E5">Aa</span></td><td>#991B1B on #FEF2F2</td><td class="num">7.60:1</td><td>AA ✓</td></tr><tr><td>White text on red button</td><td><span class="chip" style="background:#B91C1C;color:#FAFAFA;border-color:#E5E5E5">Aa</span></td><td>#FAFAFA on #B91C1C</td><td class="num">6.20:1</td><td>AA ✓</td></tr><tr><td>White text on red button hover/pressed</td><td><span class="chip" style="background:#991B1B;color:#FAFAFA;border-color:#E5E5E5">Aa</span></td><td>#FAFAFA on #991B1B</td><td class="num">7.96:1</td><td>AA ✓</td></tr><tr><td>Red button edge vs dark ground</td><td><span class="chip" style="background:#0A0A0A;color:#B91C1C;border-color:#2E2E2E">Aa</span></td><td>#B91C1C on #0A0A0A</td><td class="num">3.06:1</td><td>AA ✓ (3:1 rule)</td></tr><tr><td>Red button edge vs white ground</td><td><span class="chip" style="background:#FFFFFF;color:#B91C1C;border-color:#E5E5E5">Aa</span></td><td>#B91C1C on #FFFFFF</td><td class="num">6.47:1</td><td>AA ✓ (3:1 rule)</td></tr><tr><td>Ghost-button border on dark</td><td><span class="chip" style="background:#0A0A0A;color:#737373;border-color:#2E2E2E">Aa</span></td><td>#737373 on #0A0A0A</td><td class="num">4.18:1</td><td>AA ✓ (3:1 rule)</td></tr><tr><td>Input / ghost border on white</td><td><span class="chip" style="background:#FFFFFF;color:#8A8A8A;border-color:#E5E5E5">Aa</span></td><td>#8A8A8A on #FFFFFF</td><td class="num">3.45:1</td><td>AA ✓ (3:1 rule)</td></tr><tr><td>Focus ring on dark (white)</td><td><span class="chip" style="background:#0A0A0A;color:#FAFAFA;border-color:#2E2E2E">Aa</span></td><td>#FAFAFA on #0A0A0A</td><td class="num">18.97:1</td><td>AA ✓ (3:1 rule)</td></tr><tr><td>Focus ring on light (ink)</td><td><span class="chip" style="background:#FFFFFF;color:#0A0A0A;border-color:#E5E5E5">Aa</span></td><td>#0A0A0A on #FFFFFF</td><td class="num">19.80:1</td><td>AA ✓ (3:1 rule)</td></tr></table>
+</div></section>
+</body></html>
