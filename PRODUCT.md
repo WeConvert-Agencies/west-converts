@@ -50,7 +50,10 @@ the contact form at the bottom of the page.
 ## Evidence on Hand
 - Hot & Cold Mechanical (Longmont, CO): real client, live website at hotncoldmechanical.com. Shown only
   as a logo in the "You're in good company" band: no screenshot, spotlight card or live-site link, so
-  one client doesn't get outsized attention. Only client logo cleared so far.
+  one client doesn't get outsized attention.
+- NuWave Heating & Cooling Pros (Longmont, CO): **ads client only.** We did not build their website
+  (nuwaveheatingandcoolingprosco.com), so never present it as our work or link to it as a build.
+  Logo shown in the same band.
 - No testimonials, results, client counts, stats or years in business exist yet. Do not fabricate them;
   testimonial slots stay clearly marked placeholders.
 - No original technician photography in the repo yet; the hero photo is a labeled placeholder until

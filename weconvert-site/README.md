@@ -5,8 +5,9 @@ Single self-contained file: **`index.html`** (~125 KB). Every image is base64-in
 
 Preview locally: the `weconvert-site` entry in `.claude/launch.json` serves it on :5190.
 
-`_src/` is build material, **not** part of the deploy: `hotncold-logo-white@3x.png` is the embedded
-client logo (white on transparent, made from `hotncold-logo@3x.png`), `hotncold.jpg` is the old
+`_src/` is build material, **not** part of the deploy: `hotncold-logo-white@3x.png` and
+`nuwave-logo-white.png` are the embedded client logos (white on transparent, made from
+`hotncold-logo@3x.png` and `nuwave-logo.png`), `hotncold.jpg` is the old
 screenshot (no longer on the page), `stage1-palette-type.html` the approved palette/type specimen,
 and `shots/` the stage-by-stage verification renders.
 
@@ -41,15 +42,17 @@ Every one of these is marked with a `PLACEHOLDER` or `TESTIMONIAL SLOT` comment 
 
 1. Get a logo with a transparent background, ideally white or light (it sits on charcoal).
 2. Base64-inline it and add another `<li><img …></li>` inside `.marquee__track` in `#clients`,
-   with the business name as `alt`.
+   with the business name as `alt`. Wide wordmarks sit at the base height; give a squarer logo
+   `style="--s:1.2"` so it carries the same visual weight (NuWave uses this).
 3. That's it. At 5 logos the row starts scrolling on its own; below that it stays still and centered.
 
 ## Decisions you may want to reverse
 
 - **No "AI-powered" above the fold.** AI shows up only as a functional label (AI Receptionist,
   AI Website Chatbot, "AI-assisted targeting and reporting").
-- **Clients band, not a case study.** Hot & Cold appears only as a logo (no screenshot, no live-site
-  link) so one client doesn't dominate. The small "Want your business and testimonial featured
+- **Clients band, not a case study.** Clients appear only as logos: NuWave (ads client) and Hot & Cold
+  (website client). No screenshots or live-site links, so no single client dominates. NuWave's only
+  logo file is 164×92, a touch soft on retina screens; ask them for a larger one. The small "Want your business and testimonial featured
   here?" pill invites others without inventing any.
 - **No website upsell.** The site says plainly that a website isn't required to run ads with us.
 - **Team voice ("we")** throughout, founder-led. No headcount, named staff or team photos are claimed.
