@@ -45,8 +45,8 @@
   --font-display:'Archivo',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   --font-body:'Archivo',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   --font-accent:'Archivo',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-  --fs-display:clamp(2.375rem,1.375rem + 3.4vw,4.5rem);
-  --fs-h2:clamp(1.875rem,1.375rem + 2vw,3.5rem);
+  --fs-display:clamp(2.5rem,1.25rem + 4vw,5rem);
+  --fs-h2:clamp(2rem,1.3rem + 2.5vw,3.75rem);
   --fs-h3:clamp(1.25rem,1.1rem + .5vw,1.5rem);
   --fs-lg:clamp(1.0625rem,.98rem + .45vw,1.1875rem);
   --fs-body:1.0625rem;
@@ -61,16 +61,16 @@
   --section-y-short:clamp(3.5rem,6vw,5.5rem);
   --container:1200px;
   --gutter:clamp(1.125rem,4vw,2rem);
-  --header-h:72px;
+  --header-h:80px;
 
   /* form */
-  --r-sm:8px; --r:12px; --r-lg:20px; --r-pill:999px; --r-btn:10px;
+  --r-sm:8px; --r:14px; --r-lg:24px; --r-pill:999px; --r-btn:12px;
   --shadow-sm:0 1px 2px rgba(10,10,10,.04),0 8px 24px -16px rgba(10,10,10,.16);
   --shadow-d:inset 0 1px 0 rgba(255,255,255,.04),0 20px 44px -28px rgba(0,0,0,.7);
   --shadow:0 2px 6px rgba(10,10,10,.05),0 12px 28px -8px rgba(10,10,10,.12);
   --shadow-lg:0 8px 20px rgba(10,10,10,.08),0 28px 60px -12px rgba(10,10,10,.18);
   --shadow-accent:0 6px 16px -6px rgba(185,28,28,.5);
-  --feedback:.18s; --lift:-2px; --reveal-y:12px;
+  --feedback:.22s; --lift:-3px; --reveal-y:16px;
   --ease:cubic-bezier(.16,1,.3,1);
   --ease-out:cubic-bezier(.33,1,.68,1);
 }
@@ -140,11 +140,11 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
   border-bottom:1px solid transparent;
   transition:border-color .3s var(--ease),background .3s var(--ease);
 }
-.header.stuck{border-bottom-color:var(--line-d)}
+.header.stuck{border-bottom-color:var(--line-d);background:rgba(10,10,10,.92)}
 .header__inner{display:flex;align-items:center;gap:var(--sp-5);height:var(--header-h)}
 .brand{display:inline-flex;align-items:center;gap:.6rem;min-height:44px;text-decoration:none;font-family:var(--font-display);font-weight:800;font-size:1.125rem;letter-spacing:-.02em;color:var(--on-d);white-space:nowrap}
-.brand__mark{width:28px;height:28px;flex:none;border-radius:7px;background:var(--red);display:grid;place-items:center}
-.brand__mark svg{width:18px;height:18px}
+.brand__mark{width:34px;height:34px;flex:none;border-radius:9px;background:linear-gradient(145deg,#C7342E,var(--red-2));display:grid;place-items:center;box-shadow:inset 0 1px 0 rgba(255,255,255,.18)}
+.brand__mark svg{width:25px;height:25px}
 .nav{position:relative;display:flex;align-items:center;gap:.25rem;margin-left:auto}
 .nav a{
   text-decoration:none;color:var(--on-d2);font-size:var(--fs-sm);font-weight:500;
@@ -184,8 +184,9 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
 .btn--lg{min-height:54px;padding:0 1.6rem;font-size:var(--fs-body)}
 @media (max-width:480px){ .btn{white-space:normal;text-align:center;line-height:1.3;padding-block:.55rem} .btn--lg{padding-inline:1.1rem} }
 /* primary CTA: solid brick red, white text (6.20:1), deep brick on hover (7.96:1) */
-.btn--primary{background:var(--red);color:var(--on-d);box-shadow:var(--shadow-accent)}
-.btn--primary:hover{background:var(--red-2);box-shadow:0 10px 24px -8px rgba(185,28,28,.6)}
+.btn--primary{background:linear-gradient(150deg,#BF2924,var(--red));color:var(--on-d);border-color:rgba(255,255,255,.12);box-shadow:inset 0 1px 0 rgba(255,255,255,.1),0 5px 16px -7px rgba(185,28,28,.5)}
+.btn--primary:hover{background:var(--red-2);box-shadow:inset 0 1px 0 rgba(255,255,255,.15),0 10px 24px -8px rgba(185,28,28,.45)}
+.btn:disabled{cursor:wait;opacity:.7;transform:none;box-shadow:none}
 .btn--ghost{background:transparent;color:var(--ink);border-color:var(--ui-l)}
 .btn--ghost:hover{border-color:var(--ink);background:var(--paper-3)}
 .btn--ghost-dark,.btn--ghostOnDark{background:transparent;color:var(--on-d);border-color:var(--ui-d)}
@@ -206,15 +207,14 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
    HERO: layered charcoal, photo-ready (placeholder), a quiet structural
    grid behind the lead-path demo and a protected field for the headline.
    =================================================================== */
-.hero{position:relative;isolation:isolate;overflow:hidden;background:var(--char);color:var(--on-d);padding-block:clamp(3.25rem,7.5vw,7rem) clamp(3rem,6vw,5.5rem)}
+.hero{position:relative;isolation:isolate;overflow:hidden;background:var(--char);color:var(--on-d);padding-block:clamp(3rem,6vw,6rem) clamp(3.5rem,6vw,6rem)}
 .hero__media{
   position:absolute;inset:0;z-index:-1;pointer-events:none;
-  background:linear-gradient(90deg,#0A0A0A 52%,rgba(10,10,10,0) 75%),radial-gradient(ellipse at 84% 30%,#303030 0%,#1B1B1B 32%,transparent 66%),linear-gradient(135deg,#0A0A0A 25%,#171717 70%,#0A0A0A);
+  background:radial-gradient(ellipse at 86% 46%,#261616 0%,#141212 30%,transparent 61%),var(--char);
 }
-/* Static detail stays behind the demo; the left half remains a dark reading surface. */
 .hero__media::after{
   content:"";position:absolute;inset:0;
-  background:linear-gradient(0deg,#0A0A0A 0%,rgba(10,10,10,0) 24%),radial-gradient(ellipse at 72% 42%,transparent 34%,rgba(10,10,10,.5) 100%);
+  background:linear-gradient(90deg,#0A0A0A 0%,rgba(10,10,10,.96) 34%,transparent 72%),linear-gradient(0deg,#0A0A0A,transparent 28%);
 }
 /* PLACEHOLDER PHOTO: set --hero-photo on .hero to url(data:image/jpeg;base64,...) of a real technician photo.
    Keep .hero__shade on top of it: it is what holds the headline's contrast. */
@@ -226,35 +226,53 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
   background-size:80px 80px;
   -webkit-mask-image:radial-gradient(ellipse at 65% 45%,#000,transparent 70%);mask-image:radial-gradient(ellipse at 65% 45%,#000,transparent 70%);
 }
-.hero__glow{position:absolute;left:-10%;top:0;width:min(64vw,860px);aspect-ratio:1.35;border-radius:50%;background:radial-gradient(closest-side,rgba(185,28,28,.22),rgba(185,28,28,.07) 55%,rgba(185,28,28,0));filter:blur(24px);animation:glow 12s var(--ease-out) infinite alternate}
+.hero__glow{position:absolute;right:-15%;top:0;width:min(90vw,1100px);aspect-ratio:1.3;border-radius:50%;background:radial-gradient(closest-side,rgba(185,28,28,.15),rgba(185,28,28,.04) 56%,transparent);pointer-events:none}
 .hero.is-paused .hero__glow{animation-play-state:paused}
-@keyframes glow{from{transform:translate3d(0,0,0) scale(1);opacity:.85}to{transform:translate3d(4%,3%,0) scale(1.08);opacity:1}}
-.hero__grain{position:absolute;inset:0;opacity:.07;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .6 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");background-size:180px 180px}
+
+.hero__grain{position:absolute;inset:0;opacity:.035;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .6 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");background-size:180px 180px}
 .hero__ph{position:absolute;right:var(--gutter);bottom:var(--sp-4);z-index:1}
-.hero__inner{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(2.5rem,5vw,4.5rem);align-items:center}
-.hero h1{color:var(--on-d);max-width:15ch}
+.hero__inner{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(2.5rem,5vw,4.5rem);align-items:center}
+.hero h1{color:var(--on-d);max-width:15ch;line-height:1.02;letter-spacing:-.052em}
+.hero h1 .hl{display:inline;position:relative}
+.hero__copy{position:relative;z-index:2}
+.hero__copy > .eyebrow{margin-bottom:1.5rem;color:var(--on-d2)}
 /* ember, not brick: the glow sits behind these words and brick would drop under 3:1 there */
 .hero h1 .hl{color:var(--ember)}
-.hero__lede{margin-top:var(--sp-5);max-width:48ch;font-size:var(--fs-lg);line-height:1.6;color:var(--on-d2);text-wrap:pretty}
+.hero__lede{margin-top:var(--sp-5);max-width:49ch;font-size:var(--fs-lg);line-height:1.6;color:var(--on-d2);text-wrap:pretty}
 .hero__ctas{display:flex;flex-wrap:wrap;gap:var(--sp-3);margin-top:var(--sp-7)}
 .hero__note{margin-top:var(--sp-4);font-size:var(--fs-sm);color:var(--on-d2)}
 
-/* load entrance: staggered fade-up, 180ms per line */
-.js .hero .up{opacity:0;transform:translateY(var(--reveal-y));animation:up .6s var(--ease) forwards;animation-delay:var(--d,0ms)}
-@keyframes up{to{opacity:1;transform:none}}
+/* Short entrance sequence; the headline remains visible while its position settles. */
+.js .hero .up{animation:up .8s var(--ease) both;animation-delay:var(--d,0ms)}
+.js .hero h1.up{animation-name:headline-in}
+@keyframes headline-in{from{transform:translateY(12px)}to{transform:none}}
+@keyframes up{from{opacity:0;transform:translateY(var(--reveal-y))}to{opacity:1;transform:none}}
 
 /* ---- lead path demo (dark card inside the hero) ---- */
 .flow{
-  position:relative;margin:0;background:rgba(23,23,23,.94);border:1px solid var(--line-d);
+  position:relative;margin:0;background:linear-gradient(150deg,#232020,#151515 50%);border:1px solid #454040;
   border-radius:var(--r-lg);padding:var(--sp-5) var(--sp-5) var(--sp-4);
-  box-shadow:var(--shadow-d);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 32px 70px -28px rgba(0,0,0,.95);
 }
+.hero__visual{position:relative;min-width:0;padding:2rem 0}
+.hero__architecture{position:absolute;width:150%;height:150%;max-width:none;left:-20%;top:-25%;color:rgba(250,250,250,.075);pointer-events:none}
+.hero__stage{position:relative;isolation:isolate;transform:perspective(1200px) rotateX(var(--depth-x,0deg)) rotateY(var(--depth-y,0deg));transition:transform .6s var(--ease)}
+.hero__stage::before,.hero__stage::after{content:"";position:absolute;z-index:-1;inset:0;border-radius:var(--r-lg);border:1px solid rgba(255,255,255,.1);background:linear-gradient(135deg,rgba(216,90,90,.05),rgba(255,255,255,.015));pointer-events:none}
+.hero__stage::before{transform:translate(12px,-16px) rotate(3deg)}
+.hero__stage::after{transform:translate(-10px,14px) rotate(-2deg)}
+.flow__chrome{display:flex;align-items:center;gap:5px;padding:0 0 1.15rem;opacity:.6}
+.flow__chrome i{display:block;width:5px;height:5px;border-radius:50%;background:#8E8686}
+.flow__chrome::after{content:"";width:40%;height:5px;margin:auto;border-radius:8px;background:rgba(255,255,255,.08)}
+.flow__head > :first-child{font-size:1rem;letter-spacing:-.025em}
+.flow__step > div{min-width:0;padding:.9rem 1rem;background:linear-gradient(115deg,rgba(255,255,255,.045),rgba(255,255,255,.01));border:1px solid rgba(255,255,255,.065);border-radius:12px;transition:background .4s var(--ease),border-color .4s var(--ease)}
+.flow__step.is-on > div{border-color:rgba(216,90,90,.25);background:linear-gradient(115deg,rgba(185,28,28,.07),rgba(255,255,255,.025))}
+
 .flow__head{display:flex;justify-content:space-between;align-items:center;gap:var(--sp-3);padding-bottom:var(--sp-4);border-bottom:1px solid var(--line-d);font-family:var(--font-display);font-size:var(--fs-sm);font-weight:700;color:var(--on-d)}
 .flow__tag{white-space:nowrap;font-size:var(--fs-xs);font-weight:500;color:var(--on-d2);background:transparent;border:1px solid var(--line-d);border-radius:var(--r-pill);padding:.2rem .6rem}
 .flow__tag [data-f]{color:var(--ember);font-weight:600}
 .flow__body{position:relative;padding-top:var(--sp-2)}
 .flow__steps{list-style:none;margin:0;padding:0}
-.flow__step{display:grid;grid-template-columns:40px minmax(0,1fr);gap:var(--sp-4);padding-block:var(--sp-4)}
+.flow__step{display:grid;grid-template-columns:40px minmax(0,1fr);gap:.85rem;align-items:center;padding-block:.55rem}
 .flow__ic{
   position:relative;z-index:1;width:40px;height:40px;border-radius:10px;display:grid;place-items:center;
   background:rgba(185,28,28,.16);color:var(--ember);border:1px solid rgba(185,28,28,.5);
@@ -271,8 +289,8 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
 .flow__fill{position:absolute;inset:0;border-radius:inherit;background:var(--red);transform-origin:50% 0;transform:scaleY(0);transition:transform .6s var(--ease)}
 .flow__pulse{position:absolute;left:50%;top:0;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:var(--ember);box-shadow:0 0 0 4px rgba(216,90,90,.18);opacity:0}
 .flow__foot{margin-top:var(--sp-2);padding-top:var(--sp-4);border-top:1px solid var(--line-d);font-size:var(--fs-xs);color:var(--on-d2);display:flex;align-items:center;justify-content:space-between;gap:var(--sp-3)}
-.pause-btn{position:relative;flex:none;display:inline-flex;align-items:center;gap:.4rem;height:32px;padding:0 .75rem;border-radius:var(--r-pill);border:1px solid var(--ui-d);background:transparent;color:var(--on-d2);font:inherit;font-size:var(--fs-xs);font-weight:600;cursor:pointer;transition:color .2s var(--ease),border-color .2s var(--ease)}
-.pause-btn::after{content:"";position:absolute;inset:-6px -2px}
+.pause-btn{position:relative;flex:none;display:inline-flex;align-items:center;gap:.4rem;min-height:44px;padding:0 .8rem;border-radius:var(--r-pill);border:1px solid var(--ui-d);background:transparent;color:var(--on-d2);font:inherit;font-size:var(--fs-xs);font-weight:600;cursor:pointer;transition:color .2s var(--ease),border-color .2s var(--ease)}
+.pause-btn[hidden]{display:none}
 .pause-btn:hover{color:var(--on-d);border-color:var(--on-d2)}
 .pause-btn svg{width:12px;height:12px}
 .motion-off .hero__glow,.motion-off .cta__glow{animation-play-state:paused}
@@ -283,19 +301,19 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
 .flow.is-live .flow__step:not(.is-on) .flow__check{stroke-dashoffset:10}
 .flow.is-live .flow__step.is-on .flow__ic{background:rgba(185,28,28,.16);color:var(--ember);border-color:rgba(185,28,28,.55);box-shadow:0 8px 18px -8px rgba(185,28,28,.75)}
 .flow.is-live .flow__step.is-on .flow__v{color:var(--on-d)}
-[data-f]{transition:opacity .32s var(--ease),filter .32s var(--ease)}
-.flow.is-swapping [data-f]{opacity:0;filter:blur(3px);transition-duration:.18s}
+[data-f]{transition:opacity .32s var(--ease)}
+.flow.is-swapping [data-f]{opacity:0;transition-duration:.18s}
 
 
 /* ---- trust strip: two promise pills with the CTA pill between them ---- */
-.trust{background:var(--char);color:var(--on-d)}
+.trust{background:var(--char);color:var(--on-d);padding-bottom:1.25rem}
 .trust .container{position:relative}
 .trust .container::before{content:"";position:absolute;top:0;left:var(--gutter);right:var(--gutter);height:1px;background:linear-gradient(90deg,transparent,var(--line-d) 20%,var(--line-d) 80%,transparent)}
 .trust__row{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:var(--sp-3) var(--sp-4);padding-block:var(--sp-6)}
 .trust__item{
   display:inline-flex;align-items:center;gap:.65rem;min-height:48px;padding:.45rem 1.3rem .45rem .5rem;
-  border-radius:var(--r-pill);background:linear-gradient(180deg,#1E1E1E 0%,#151515 100%);border:1px solid var(--line-d);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.07),0 12px 26px -16px rgba(0,0,0,.95);
+  border-radius:var(--r-pill);background:transparent;border:1px solid transparent;
+  box-shadow:none;
   font-size:var(--fs-sm);font-weight:600;color:var(--on-d);
   transition:transform var(--feedback) var(--ease),border-color var(--feedback) var(--ease);
 }
@@ -305,12 +323,12 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
 .trust__btn{
   min-height:54px;padding:0 1.6rem;border-radius:var(--r-pill);background:var(--red);color:var(--on-d);
   font-size:var(--fs-body);font-weight:700;
-  box-shadow:0 0 0 5px rgba(185,28,28,.2),0 14px 30px -10px rgba(185,28,28,.85);
+  box-shadow:0 4px 18px -8px rgba(185,28,28,.5);
 }
-.trust__btn:hover{background:var(--red-2);box-shadow:0 0 0 7px rgba(185,28,28,.24),0 16px 34px -10px rgba(185,28,28,.9)}
-/* Pops once on arrival; the intentional pill overshoot stays local to this strip. */
+.trust__btn:hover{background:var(--red-2);box-shadow:0 8px 24px -10px rgba(185,28,28,.55)}
+/* One calm arrival for the trust strip. */
 .io .trust__row:not(.in) > li{opacity:0;transform:translateY(var(--reveal-y)) scale(.94)}
-.io .trust__row.in > li{animation:pop .6s cubic-bezier(.34,1.56,.64,1) backwards}
+.io .trust__row.in > li{animation:pop .6s var(--ease) backwards}
 .io .trust__row.in > li:nth-child(2){animation-delay:.1s}
 .io .trust__row.in > li:nth-child(3){animation-delay:.2s}
 .io .trust__row.is-static > li{animation:none}
@@ -321,7 +339,7 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
 }
 
 /* ===================== services (stage 3): flagship ads panel, core services, also-available ===================== */
-.svc-sec{padding-top:clamp(3.5rem,6vw,5.5rem);background:linear-gradient(180deg,var(--paper-3),var(--paper-2) 10rem)}
+.svc-sec{position:relative;padding-top:clamp(3.5rem,6vw,6rem);background:var(--paper-2);border-radius:32px 32px 0 0;margin-top:-1px}
 .sic{width:48px;height:48px;flex:none;border-radius:12px;display:grid;place-items:center}
 .sic svg{width:22px;height:22px}
 .sic--sm{width:42px;height:42px;border-radius:11px}
@@ -393,7 +411,8 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
 
 /* also available: three compact cards */
 .more{margin-top:clamp(2.5rem,5vw,3.5rem)}
-.more > h3{font-size:var(--fs-h3);font-weight:800}
+.more > h3{display:flex;align-items:center;gap:1.25rem;font-size:var(--fs-h3);font-weight:800}
+.more > h3::after{content:"";height:1px;flex:1;background:var(--line-strong)}
 .more__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--sp-4);margin-top:var(--sp-5)}
 .mcard{padding:var(--sp-6)}
 .mcard h4{margin-top:var(--sp-4);font-size:1.1875rem;font-weight:700;letter-spacing:-.01em}
@@ -435,6 +454,7 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
   background:var(--char);color:var(--on-d);border:1px solid var(--line-d);border-radius:18px;
   box-shadow:0 30px 60px -20px rgba(0,0,0,.65);transform-origin:100% 100%;animation:chatIn .28s var(--ease);
 }
+.chatw__panel{max-height:calc(100vh - 190px);max-height:calc(100dvh - 190px - env(safe-area-inset-bottom));overflow-y:auto;overscroll-behavior:contain}
 .chatw__panel[hidden]{display:none}
 @keyframes chatIn{from{opacity:0;transform:translateY(8px) scale(.97)}to{opacity:1;transform:none}}
 .chatw__head{display:flex;align-items:center;gap:.7rem;padding:.8rem .7rem .8rem 1rem;border-bottom:1px solid var(--line-d)}
@@ -453,10 +473,10 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
 .chatw__note{font-size:var(--fs-xs);color:var(--on-d2);text-align:center}
 .chatw__panel :focus-visible{outline-color:var(--on-d)}
 @media (max-width:560px){
-  .mcta:not(.is-hidden) ~ .chatw{bottom:92px}
+  body:has(.mcta:not(.is-hidden)) .chatw{bottom:calc(92px + env(safe-area-inset-bottom))}
   .chatw__btn{width:52px;height:52px}
   .chatw__btn svg{width:23px;height:23px}
-  .chatw__panel{bottom:66px}
+  .chatw__panel{bottom:66px;max-height:calc(100dvh - 190px - env(safe-area-inset-bottom))}
 }
 
 /* ===================== process — the line draws, each step lights as it passes ===================== */
@@ -586,8 +606,10 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
 .faq__ic svg{width:14px;height:14px}
 .faq__q:hover .faq__ic,.faq__q:focus-visible .faq__ic{border-color:var(--accent);background:var(--accent-tint)}
 .faq__q[aria-expanded="true"] .faq__ic{transform:rotate(45deg);border-color:var(--accent);background:var(--accent-tint);color:var(--accent)}
-.faq__a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s var(--ease)}
-.faq__item.is-open .faq__a{grid-template-rows:1fr}
+.faq__a{display:grid;grid-template-rows:1fr;transition:grid-template-rows .35s var(--ease)}
+.faq.is-enhanced .faq__a{grid-template-rows:0fr;visibility:hidden;transition:grid-template-rows .35s var(--ease),visibility .35s}
+.faq.is-enhanced .faq__item.is-open .faq__a{grid-template-rows:1fr;visibility:visible}
+.faq__item.is-open .faq__a{grid-template-rows:1fr;visibility:visible}
 .faq__item:has(.faq__q[aria-expanded="true"]) .faq__a{grid-template-rows:1fr}
 .faq__a > div{overflow:hidden}
 .faq__a p{padding:0 3rem 1.5rem .25rem;color:var(--ink-muted);font-size:var(--fs-sm);max-width:44rem}
@@ -600,9 +622,9 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
   position:absolute;z-index:-1;width:70vw;min-width:420px;aspect-ratio:1.6;left:50%;top:-30%;
   transform:translateX(-50%);border-radius:50%;filter:blur(80px);opacity:.4;
   background:radial-gradient(ellipse at 50% 50%,#D85A5A 0%,rgba(185,28,28,.55) 42%,rgba(185,28,28,0) 72%);
-  animation:cta-pulse 14s var(--ease-out) infinite alternate;
+  /* Static lighting keeps the form quiet and avoids a large animated blur layer. */
 }
-@keyframes cta-pulse{from{transform:translateX(-50%) scale(1);opacity:.34}to{transform:translateX(-52%) scale(1.16);opacity:.5}}
+
 .cta__inner{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2.5rem,6vw,5rem);align-items:center}
 .cta h2{color:var(--on-inverse);max-width:16ch}
 .cta__lede{margin-top:var(--sp-5);font-size:var(--fs-lg);color:var(--on-inverse-muted);max-width:34rem;text-wrap:pretty}
@@ -682,6 +704,153 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
   body{padding-bottom:78px}
 }
 
+/* ===================== premium composition and native service previews ===================== */
+.eyebrow{display:flex;align-items:center;gap:.75rem;font-size:.6875rem;line-height:1.5;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--ink-muted)}
+.eyebrow::before{content:"";width:22px;height:2px;flex:none;background:var(--red)}
+.section-label{margin-bottom:1.5rem}
+.section-label::after{content:"";height:1px;flex:1;margin-left:.5rem;background:var(--line-strong)}
+.why-sec .section-label,.clients .section-label,.cta .section-label{color:var(--on-d2)}
+.why-sec .section-label::after,.clients .section-label::after,.cta .section-label::after{background:var(--line-d)}
+.sec-head h2{line-height:1.04}
+.sec-head .section-label{font-size:.6875rem;line-height:1.5;letter-spacing:.16em;margin:0 0 1.5rem;max-width:none}
+.motion-off .hero__stage{transform:none}
+.flag{background:linear-gradient(120deg,#201919,var(--char) 60%);border-color:#383030}
+.flag__subs{align-content:center}
+.sub{background:rgba(255,255,255,.035);border-color:rgba(255,255,255,.1)}
+.scard{overflow:hidden}
+.scard__top{position:relative}
+.scard__top::after{font-size:.75rem;letter-spacing:.12em;font-weight:500;color:var(--ink-muted)}
+.scard--website .scard__top::after{content:"01 / WEB"}
+.scard--receptionist .scard__top::after{content:"02 / VOICE";margin-left:auto}
+.scard--receptionist .scard__top .tag{margin-left:auto}
+.scard .card-foot{border-top:1px solid var(--line);margin-top:auto;padding-top:1rem}
+.scard .svc-addon,.scard .svc-example{margin-bottom:1.5rem}
+.scard--receptionist .svc-example{flex:1;display:flex;flex-direction:column;justify-content:center;min-height:290px}
+.scard .sic--l,.mcard .sic--l{background:var(--paper-2);border-color:var(--line-strong);color:var(--ink)}
+.site-preview{margin:1.5rem 0 0;padding:1rem;background:var(--paper-2);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.site-preview__bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.5rem;margin-bottom:1rem}
+.site-preview figcaption{font-size:var(--fs-xs);font-weight:500;color:var(--ink-muted)}
+.preview-switch{display:flex;gap:2px;padding:2px;border:1px solid var(--line-strong);border-radius:var(--r-pill)}
+.preview-switch[hidden]{display:none}
+.preview-switch button{min-width:60px;min-height:44px;padding:0 .7rem;border:0;border-radius:var(--r-pill);background:transparent;color:var(--ink-muted);font-size:.75rem;font-weight:600;cursor:pointer;transition:color var(--feedback),background var(--feedback)}
+.preview-switch button[aria-pressed="true"]{color:var(--on-d);background:var(--char)}
+.site-preview__stage{height:215px;display:flex;align-items:center;justify-content:center;perspective:900px}
+.mini-site{width:100%;height:200px;background:var(--char);border:1px solid #454040;border-radius:9px;overflow:hidden;box-shadow:0 12px 24px -14px rgba(0,0,0,.65)}
+.mini-site__chrome{height:21px;display:flex;align-items:center;gap:3px;padding:0 10px;background:#232121;border-bottom:1px solid var(--line-d)}
+.mini-site__chrome i{width:3px;height:3px;border-radius:50%;background:#8E8686}
+.mini-site__chrome span{height:4px;width:40%;border-radius:8px;margin:auto;background:#3B3636}
+.mini-site__body{height:calc(100% - 21px);padding:17px 21px;background:radial-gradient(ellipse at 85% 50%,#341A1A,transparent 65%)}
+.mini-site__brand{display:flex;gap:5px;align-items:center;color:#FAFAFA;font-size:8px;font-weight:700}
+.mini-site__brand::before{content:"";height:10px;width:10px;border-radius:3px;background:var(--red)}
+.mini-site__layout{display:grid;grid-template-columns:1.2fr 1fr;gap:22px;margin-top:17px;align-items:center}
+.mini-site__title{font-size:17px;font-weight:800;letter-spacing:-.045em;line-height:1.05;color:var(--on-d);max-width:16ch}
+.mini-site__title span{color:var(--ember)}
+.mini-site__button{height:10px;width:62px;margin-top:12px;border-radius:3px;background:var(--red)}
+.mini-site__flow{display:grid;gap:7px;padding:10px;border:1px solid #483333;border-radius:7px;background:#1B1818}
+.mini-site__flow i{height:17px;border:1px solid #443535;border-radius:4px;background:linear-gradient(90deg,rgba(185,28,28,.25) 17%,transparent 17%)}
+.site-preview.is-mobile .mini-site{width:140px;height:215px;border-radius:17px;border-width:4px}
+.site-preview.is-mobile .mini-site__chrome{height:13px;justify-content:center}
+.site-preview.is-mobile .mini-site__chrome i{display:none}
+.site-preview.is-mobile .mini-site__chrome span{width:30%}
+.site-preview.is-mobile .mini-site__body{padding:12px}
+.site-preview.is-mobile .mini-site__layout{grid-template-columns:1fr;gap:12px;margin-top:15px}
+.site-preview.is-mobile .mini-site__title{font-size:15px}
+.site-preview.is-mobile .mini-site__flow{padding:6px;gap:4px}
+.site-preview.is-mobile .mini-site__flow i{height:9px}
+.site-preview.is-mobile .mini-site__button{margin-top:8px}
+.svc-example{position:relative;overflow:hidden;background:radial-gradient(ellipse at 80% 0,rgba(185,28,28,.18),transparent 70%),var(--char)}
+.voice-visual{display:flex;gap:5px;align-items:center;justify-content:center;height:77px;margin-bottom:1rem;border-bottom:1px solid var(--line-d);padding-bottom:1rem}
+.voice-visual i{display:block;width:3px;height:var(--bar,16px);border-radius:3px;background:var(--ember);opacity:.7;transform-origin:center}
+.voice-visual i:nth-child(3n){opacity:.35}
+.sms{position:relative;box-shadow:0 12px 24px -12px rgba(0,0,0,.5)}
+.svc-cta{position:relative;overflow:hidden;background:linear-gradient(110deg,#171313,var(--char));border-color:#353030}
+.svc-cta::before{content:"";position:absolute;inset:1.5rem auto 1.5rem 0;width:3px;background:var(--ember)}
+#process{padding-top:clamp(3.5rem,6vw,6rem)}
+.steps__list{gap:2rem}
+.step{padding-top:4.5rem}
+.step__node{width:40px;height:40px;font-size:.875rem;box-shadow:0 0 0 8px var(--paper)}
+.steps__track{top:20px}
+.step__time{display:flex;align-items:center;gap:.45rem}
+.step__time::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--red);flex:none}
+.why-sec{position:relative;background:radial-gradient(ellipse at 100% 0,rgba(185,28,28,.06),transparent 60%),var(--char)}
+.why__points{counter-reset:point}
+.point{position:relative;padding-left:2.75rem;counter-increment:point}
+.point::before{content:"0" counter(point);position:absolute;left:0;top:1.65rem;font-size:.6875rem;letter-spacing:.05em;color:var(--on-d2)}
+.point:first-child::before{top:.3rem}
+.why-sec .cmp{background:#151515}
+.why-sec .cmp thead th:last-child,.why-sec .cmp td.yes{background:rgba(185,28,28,.055)}
+.founder-sec{padding-block:clamp(4rem,7vw,7rem);background:var(--paper-2)}
+.founder__quote{padding-left:1.25rem;border-left:2px solid var(--red);font-weight:500;line-height:1.5;font-size:clamp(1.125rem,.95rem + .8vw,1.5rem)}
+.founder__card{border-top:2px solid var(--red)}
+.founder__photo{border-radius:18px;background:linear-gradient(140deg,#302323,var(--char));box-shadow:inset 0 0 0 1px rgba(216,90,90,.4)}
+.clients{background:var(--char);padding-block:clamp(3.5rem,6vw,6rem)}
+.marquee:not(.is-looping){padding:2rem 0;border-block:1px solid var(--line-d)}
+.marquee:not(.is-looping) .marquee__track{gap:clamp(3rem,10vw,10rem)}
+.marquee__track img{opacity:.9}
+#faq{background:var(--paper-2)}
+.faq{background:transparent;border:0;border-radius:0;box-shadow:none;padding-inline:0}
+.faq__item{border-color:var(--line-strong)}
+.faq__item:first-child{border-top:1px solid var(--line-strong)}
+.faq__q{font-size:clamp(1.0625rem,.85rem + .5vw,1.3125rem);padding-block:1.5rem}
+.faq__ic{width:34px;height:34px}
+.faq__q[aria-expanded="true"]{color:var(--accent)}
+.cta .form{border-top:3px solid var(--red);box-shadow:0 28px 80px -30px rgba(0,0,0,.65)}
+.form .choice__opts{gap:.55rem}
+.form .chip{min-height:48px}
+.form .field input{background:#FBFBFA}
+.cta h2{font-size:clamp(2.25rem,1.4rem + 3vw,4.5rem);letter-spacing:-.045em}
+.footer__bottom{padding-right:4rem}
+[data-reveal].reveal-ready{opacity:0;transform:translateY(20px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+[data-reveal].reveal-ready.in,[data-reveal].is-static{opacity:1;transform:none}
+[data-reveal].is-static{transition:none}
+@media (hover:hover) and (pointer:fine){
+  .scard--receptionist:hover .voice-visual i{animation:voice-in .55s var(--ease) both;animation-delay:var(--beat,0ms)}
+}
+@keyframes voice-in{from{transform:scaleY(.45)}to{transform:scaleY(1)}}
+@media (max-width:700px){
+  .hero{padding-top:2.75rem;padding-bottom:2.75rem}
+  .hero__copy > .eyebrow{font-size:.625rem;margin-bottom:1.25rem;letter-spacing:.12em}
+  .hero h1{font-size:clamp(2.5rem,8.9vw,3.75rem);max-width:17ch}
+  .hero__lede{font-size:1rem;line-height:1.65}
+  .hero__inner{gap:2rem}
+  .hero__visual{padding:1rem 0 0;max-width:32rem}
+  .hero__architecture{width:125%;left:-12.5%;height:140%;top:-20%}
+  .hero__stage::before{transform:translate(5px,-8px) rotate(2deg)}
+  .hero__stage::after{transform:translate(-3px,6px) rotate(-1deg)}
+  .flow__chrome{padding-bottom:.85rem}
+  .flow__step > div{padding:.8rem}
+  .flow__foot{margin-top:.6rem}
+  .trust{padding-bottom:.5rem}
+  .trust__row{gap:.65rem;padding-block:1.5rem}
+  .trust__item{font-size:.8125rem;min-height:44px;padding-left:0;justify-content:center}
+  .trust__cta{order:3;margin-top:.35rem}
+  .trust__btn{min-height:50px;font-size:.9375rem}
+  .section-label{margin-bottom:1.25rem;font-size:.625rem}
+  .sec-head p{font-size:1rem}
+  .scard{padding:1.5rem}
+  .site-preview{padding:.8rem}
+  .preview-switch button{min-width:56px;padding-inline:.5rem}
+  .point{padding-left:2.25rem}
+  .steps__list{gap:1.75rem}
+  .step{padding-top:0;padding-left:3.5rem}
+  .step__node{width:32px;height:32px;box-shadow:none}
+  .step::after{content:"";position:absolute;left:16px;top:42px;bottom:-1rem;width:1px;background:var(--line-strong)}
+  .step:last-child::after{display:none}
+  .clients .invite{border:0;padding-inline:0;text-align:center}
+}
+@media (max-width:360px){
+  .flow__step{grid-template-columns:32px minmax(0,1fr);gap:.6rem}
+  .flow__ic{width:32px;height:32px}
+  .flow__rail{left:16px}
+  .flow__step > div{padding:.65rem}
+  .flow__meta{font-size:.75rem}
+  .site-preview__bar{justify-content:center;text-align:center}
+  .mini-site__body{padding:14px}
+  .mini-site__layout{gap:10px}
+  .mini-site__title{font-size:14px}
+  .scard{padding:1.25rem}
+}
+
 /* ===================== responsive ===================== */
 @media (min-width:1281px){
   :root{--container:1360px;--gutter:clamp(2rem,3vw,3rem)}
@@ -691,14 +860,16 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
   .sec-head:not(.sec-head--center) p{margin:0 0 .2rem;max-width:44ch;padding-left:var(--sp-6);border-left:1px solid var(--head-line)}
   #faq .container{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);gap:var(--sp-9);align-items:start}
   #faq .sec-head{margin:0;text-align:left;max-width:none}
+  #faq .sec-head{position:sticky;top:calc(var(--header-h) + 2rem)}
   #faq .sec-head h2{max-width:15ch}
   #faq .faq{width:100%;max-width:none}
 }
 @media (max-width:1040px){
   .hero__inner{grid-template-columns:1fr}
-  .hero h1{max-width:16ch}
-  .flow{max-width:36rem}
-  .hero__glow{width:92vw;left:-25%}
+  .hero h1{max-width:17ch}
+  .hero__visual{width:100%;max-width:38rem;justify-self:center}
+  .flow{max-width:none}
+  .hero__glow{width:120vw;right:-40%}
   .hero__media{background:linear-gradient(180deg,var(--char) 55%,var(--char-2) 78%,var(--char))}
   .hero__shade::after{inset:45% 0 0 35%}
   .why{grid-template-columns:1fr;gap:var(--sp-7)}
@@ -709,7 +880,7 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
 }
 @media (max-width:900px){
   .header__inner{gap:var(--sp-3)}
-  .nav{
+  .nav-ready .nav{
     position:fixed;inset:var(--header-h) 0 auto;flex-direction:column;align-items:stretch;
     background:var(--char);border-bottom:1px solid var(--line-d);padding:var(--sp-3) var(--gutter) var(--sp-5);
     margin:0;gap:.15rem;transform:translateY(-8px);opacity:0;visibility:hidden;
@@ -721,7 +892,10 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
   .nav__ind{display:none}
   .nav a[aria-current="true"]{color:var(--on-d);box-shadow:inset 3px 0 0 var(--red)}
   .header__cta{order:2;margin-left:auto}
-  .navtoggle{display:flex;order:3}
+  .nav-ready .navtoggle{display:flex;order:3}
+  html:not(.nav-ready) .header{position:relative}
+  html:not(.nav-ready) .header__inner{height:auto;min-height:var(--header-h);flex-wrap:wrap;padding-block:.75rem}
+  html:not(.nav-ready) .nav{order:4;width:100%;flex-wrap:wrap;margin:0}
   .cta__inner{grid-template-columns:1fr;gap:var(--sp-7)}
   .cta h2{max-width:none}
 }
@@ -749,10 +923,32 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
   .form{padding:var(--sp-5)}
 }
 
+@media (max-width:1040px) and (min-width:701px){
+  .hero__inner{grid-template-columns:1.08fr 1fr;gap:2rem}
+  .hero h1{font-size:clamp(2.7rem,5.4vw,3.6rem)}
+  .hero__lede{font-size:1rem}
+  .hero__ctas{gap:.7rem;margin-top:1.5rem}
+  .hero__ctas .btn{font-size:.875rem;width:100%}
+  .flow{padding:1rem}
+  .flow__head{flex-wrap:wrap}
+  .flow__step{grid-template-columns:32px minmax(0,1fr);gap:.6rem}
+  .flow__ic{width:32px;height:32px;border-radius:9px}
+  .flow__rail{left:16px}
+  .flow__step > div{padding:.65rem .7rem}
+  .flow__k{flex-wrap:wrap;gap:.1rem}
+  .flow__src{text-align:left}
+  .flow__foot{flex-wrap:wrap}
+}
 /* ===================== reduced motion ===================== */
 /* Fewer, gentler: drop spatial movement and loops, keep color/opacity feedback. */
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
+  .js .hero .up,.js .hero h1.up{animation:none;opacity:1;transform:none}
+  .hero__stage{transform:none;transition:none}
+  [data-reveal].reveal-ready{opacity:1;transform:none;transition:none}
+  .nav-ready .nav,.preview-switch button,.flow__fill,.flow__ic,.flow__v,[data-f],.flow__step > div{transition:none}
+  .flow.is-swapping [data-f]{opacity:1;filter:none}
+  .scard--receptionist:hover .voice-visual i{animation:none}
   .hero__glow,.cta__glow{animation:none}
   .js .hero .up{transform:none;filter:none;animation-duration:.25s}
   .mcta{transition:none}
@@ -1068,9 +1264,10 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
 
   <div class="container hero__inner">
     <div class="hero__copy">
-      <h1 class="up" style="--d:0ms">Helping your trade business get more <span class="hl">booked jobs</span>.</h1>
-      <p class="hero__lede up" style="--d:180ms">Meta and Google ads are what we do best — backed by the websites and AI receptionists that turn every click into a call. Built for HVAC, roofing, plumbing and electrical businesses who want a straight answer, not a sales pitch.</p>
-      <div class="hero__ctas up" style="--d:360ms">
+      <p class="eyebrow up" style="--d:0ms">Ads · Websites · Automation</p>
+      <h1 class="up" style="--d:70ms">Helping your trade business get more <span class="hl">booked jobs</span>.</h1>
+      <p class="hero__lede up" style="--d:140ms">Meta and Google ads are what we do best — backed by the websites and AI receptionists that turn every click into a call. Built for HVAC, roofing, plumbing and electrical businesses who want a straight answer, not a sales pitch.</p>
+      <div class="hero__ctas up" style="--d:220ms">
         <a class="btn btn--primary btn--lg" href="#start">
           Book Your Free Strategy Call
           <svg class="btn__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -1080,7 +1277,16 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
     </div>
 
     <!-- Illustrative only: an EXAMPLE of how a lead moves. Not real client data. Content rotates via JS. -->
-    <figure class="flow up" id="flow" style="--d:720ms" aria-labelledby="flow-cap">
+    <div class="hero__visual up" style="--d:280ms">
+      <svg class="hero__architecture" viewBox="0 0 700 700" fill="none" aria-hidden="true">
+        <path d="M20 200H140L225 490L335 170L450 490L555 200H680" stroke="currentColor" stroke-width="1"/>
+        <path d="M20 230H118L225 570L335 250L450 570L578 230H680" stroke="currentColor" stroke-width="1"/>
+        <circle cx="350" cy="350" r="294" stroke="currentColor" stroke-dasharray="2 10"/>
+        <path d="M350 32v20M340 42h20M350 648v20M340 658h20M32 350h20M42 340v20M648 350h20M658 340v20" stroke="currentColor"/>
+      </svg>
+      <div class="hero__stage">
+    <figure class="flow" id="flow" aria-labelledby="flow-cap">
+      <div class="flow__chrome" aria-hidden="true"><i></i><i></i><i></i></div>
       <figcaption class="flow__head">
         <span id="flow-cap">How a lead reaches you</span>
         <span class="flow__tag"><span data-f="trade">HVAC</span> · example</span>
@@ -1114,6 +1320,8 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
       </div>
       <div class="flow__foot"><p>Every call and form goes straight to your phone.</p></div>
     </figure>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1131,13 +1339,14 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
 <!-- ============================ SERVICES ============================ -->
 <section class="section svc-sec" id="services">
   <div class="container">
+    <p class="eyebrow section-label">01 / Services</p>
     <div class="sec-head">
       <h2>Everything that turns a search into a booked job.</h2>
       <p>Ads are what we do best. Everything else here exists to make those ads pay off: the page they land on, the phone that gets answered, and the listing people check before they call.</p>
     </div>
 
     <!-- Flagship: ads lead, visually and in order -->
-    <article class="flag">
+    <article class="flag" data-reveal>
       <div class="flag__main">
         <div class="flag__top"><span class="sic sic--d"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 15v-4a2 2 0 012-2h2l7-4v16l-7-4H5a2 2 0 01-2-2z"/><path d="M18 9.5a4 4 0 010 5"/></svg></span><span class="tag tag--red">Flagship service</span></div>
         <h3>Meta &amp; Google Ads</h3>
@@ -1160,12 +1369,34 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
       </div>
     </article>
 
-    <div class="core">
-      <article class="scard">
+    <div class="core" data-reveal>
+      <article class="scard scard--website">
         <div class="scard__top"><span class="sic sic--l"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4" width="19" height="15" rx="2.5"/><path d="M2.5 8.5h19M6 6.2h.01M8.6 6.2h.01"/></svg></span></div>
         <h3>Website Design &amp; Build</h3>
         <p>A fast, mobile-first website that makes calling you the obvious next step, with on-page SEO built in. It&rsquo;s available on its own, and it&rsquo;s not a requirement for running ads with us.</p>
         <ul class="chips"><li>Mobile-first</li><li>Tap-to-call</li><li>Quote form</li><li>On-page SEO</li><li>Hosting &amp; updates</li></ul>
+        <!-- Native illustration of this website; not a client project or a performance claim. -->
+        <figure class="site-preview" id="site-preview">
+          <div class="site-preview__bar">
+            <figcaption>This site is the demo.</figcaption>
+            <div class="preview-switch" role="group" aria-label="Website preview layout" hidden>
+              <button type="button" data-preview="desktop" aria-pressed="true">Desktop</button>
+              <button type="button" data-preview="mobile" aria-pressed="false">Mobile</button>
+            </div>
+          </div>
+          <div class="site-preview__stage" aria-hidden="true">
+            <div class="mini-site">
+              <div class="mini-site__chrome"><i></i><i></i><i></i><span></span></div>
+              <div class="mini-site__body">
+                <div class="mini-site__brand">West Converts</div>
+                <div class="mini-site__layout">
+                  <div><p class="mini-site__title">Helping your trade business get more <span>booked jobs</span>.</p><div class="mini-site__button"></div></div>
+                  <div class="mini-site__flow"><i></i><i></i><i></i></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </figure>
         <div class="svc-addon" id="ai-chatbot">
           <span class="sic sic--d sic--sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 01-11.6 7.1L4 20l1-4.6A8 8 0 1121 12z"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01"/></svg></span>
           <div>
@@ -1176,20 +1407,21 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
         <div class="card-foot"><span class="cq">Custom quote</span><a class="slink" href="#start">Book Your Free Strategy Call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
       </article>
 
-      <article class="scard" id="ai-receptionist">
+      <article class="scard scard--receptionist" id="ai-receptionist">
         <div class="scard__top"><span class="sic sic--l"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11a8 8 0 0116 0"/><rect x="2.5" y="11" width="4.5" height="7" rx="2"/><rect x="17" y="11" width="4.5" height="7" rx="2"/><path d="M19.2 18v.8a2.5 2.5 0 01-2.5 2.5H13"/></svg></span><span class="tag tag--soft">New</span></div>
         <h3>AI Receptionist</h3>
         <p>The call you miss on a roof is the job that goes to the next company. Ours answers every call you can&rsquo;t, takes the name, number and address, books the appointment and texts you the details, in your business&rsquo;s own voice.</p>
         <ul class="chips"><li>Answers 24/7</li><li>Books appointments</li><li>Texts you the details</li></ul>
         <figure class="svc-example">
           <figcaption>Example text you&rsquo;d get</figcaption>
+          <div class="voice-visual" aria-hidden="true"><i style="--bar:10px;--beat:0ms"></i><i style="--bar:18px;--beat:14ms"></i><i style="--bar:28px;--beat:28ms"></i><i style="--bar:16px;--beat:42ms"></i><i style="--bar:38px;--beat:56ms"></i><i style="--bar:49px;--beat:70ms"></i><i style="--bar:29px;--beat:84ms"></i><i style="--bar:56px;--beat:98ms"></i><i style="--bar:40px;--beat:112ms"></i><i style="--bar:24px;--beat:126ms"></i><i style="--bar:46px;--beat:140ms"></i><i style="--bar:60px;--beat:154ms"></i><i style="--bar:33px;--beat:168ms"></i><i style="--bar:48px;--beat:182ms"></i><i style="--bar:22px;--beat:196ms"></i><i style="--bar:36px;--beat:210ms"></i><i style="--bar:17px;--beat:224ms"></i><i style="--bar:27px;--beat:238ms"></i><i style="--bar:15px;--beat:252ms"></i><i style="--bar:10px;--beat:266ms"></i></div>
           <div class="sms"><p class="sms__from">AI Receptionist · just now</p><p class="sms__txt">New booking: furnace not heating. Tue, 9:00 AM. Name, number and address saved.</p></div>
         </figure>
         <div class="card-foot"><span class="cq">Custom quote</span><a class="slink" href="#start">Book Your Free Strategy Call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
       </article>
     </div>
 
-    <div class="more">
+    <div class="more" data-reveal>
       <h3>Also available</h3>
       <div class="more__grid">
         <article class="mcard"><span class="sic sic--l sic--sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-5.5 7-11a7 7 0 10-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg></span><h4>Google Business Profile &amp; Local SEO</h4><p>Show up when someone searches your trade plus your town, in the map pack and the regular results. It all stays in your name.</p><div class="card-foot"><span class="cq">Custom quote</span><a class="slink" href="#start">Ask on your strategy call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></article>
@@ -1208,6 +1440,7 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
 <!-- ============================ PROCESS ============================ -->
 <section class="section" id="process">
   <div class="container">
+    <p class="eyebrow section-label">02 / How it works</p>
     <div class="sec-head">
       <h2>From first call to live ads, without the runaround.</h2>
       <p>Four steps from the first call to leads coming in.</p>
@@ -1253,12 +1486,13 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
 <!-- ============================ WHY US ============================ -->
 <section class="section why-sec" id="why">
   <div class="container">
+    <p class="eyebrow section-label">03 / Why us</p>
     <div class="sec-head">
       <h2>You&rsquo;ve probably been burned by an agency already.</h2>
       <p>Agencies that go quiet after the invoice clears. Ad budgets that disappear with nothing to show for it. Here&rsquo;s how we set this up differently.</p>
     </div>
 
-    <div class="why">
+    <div class="why" data-reveal>
       <div class="why__points">
         <div class="point">
           <h3>You deal with the people doing the work.</h3>
@@ -1301,8 +1535,9 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
 <!-- PLACEHOLDER: swap the DT monogram for a real photo of Danny (natural light beats studio). -->
 <section class="section section--tint founder-sec" id="about" aria-labelledby="about-title">
   <div class="container">
-    <div class="founder">
+    <div class="founder" data-reveal>
       <div>
+        <p class="eyebrow section-label">04 / About West Converts</p>
         <h2 id="about-title">Founder-led, from the first call on.</h2>
         <blockquote class="founder__quote">&ldquo;We&rsquo;d rather give you a straight answer than walk you through a proposal. That&rsquo;s the whole pitch.&rdquo;</blockquote>
       </div>
@@ -1322,6 +1557,7 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
 <!-- ============================ CLIENTS ============================ -->
 <section class="clients" id="clients" aria-labelledby="clients-title">
   <div class="container">
+    <p class="eyebrow section-label">05 / Our clients</p>
     <h2 id="clients-title">You&rsquo;re in good company.</h2>
 
     <!-- Client logos. Add each new client as another <li> (white or light logo on a transparent PNG, base64-inlined).
@@ -1351,12 +1587,13 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
 <section class="section section--tint" id="faq">
   <div class="container">
     <div class="sec-head sec-head--center">
+      <p class="eyebrow section-label">06 / Your questions</p>
       <h2>The questions owners actually ask.</h2>
     </div>
     <div class="faq">
       <div class="faq__item">
         <h3>
-          <button class="faq__q" type="button" id="faq-q1" aria-expanded="false" aria-controls="faq-a1">
+          <button class="faq__q" type="button" id="faq-q1" aria-expanded="true" aria-controls="faq-a1">
             <span>What does it cost?</span>
             <span class="faq__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
           </button>
@@ -1370,7 +1607,7 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
       </div>
       <div class="faq__item">
         <h3>
-          <button class="faq__q" type="button" id="faq-q2" aria-expanded="false" aria-controls="faq-a2">
+          <button class="faq__q" type="button" id="faq-q2" aria-expanded="true" aria-controls="faq-a2">
             <span>Why is ad spend separate from your fee?</span>
             <span class="faq__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
           </button>
@@ -1384,7 +1621,7 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
       </div>
       <div class="faq__item">
         <h3>
-          <button class="faq__q" type="button" id="faq-q3" aria-expanded="false" aria-controls="faq-a3">
+          <button class="faq__q" type="button" id="faq-q3" aria-expanded="true" aria-controls="faq-a3">
             <span>What does the AI Receptionist actually do?</span>
             <span class="faq__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
           </button>
@@ -1398,7 +1635,7 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
       </div>
       <div class="faq__item">
         <h3>
-          <button class="faq__q" type="button" id="faq-q4" aria-expanded="false" aria-controls="faq-a4">
+          <button class="faq__q" type="button" id="faq-q4" aria-expanded="true" aria-controls="faq-a4">
             <span>What is Brand &amp; Growth Strategy?</span>
             <span class="faq__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
           </button>
@@ -1412,7 +1649,7 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
       </div>
       <div class="faq__item">
         <h3>
-          <button class="faq__q" type="button" id="faq-q5" aria-expanded="false" aria-controls="faq-a5">
+          <button class="faq__q" type="button" id="faq-q5" aria-expanded="true" aria-controls="faq-a5">
             <span>Do I need a new website to run ads?</span>
             <span class="faq__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
           </button>
@@ -1426,7 +1663,7 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
       </div>
       <div class="faq__item">
         <h3>
-          <button class="faq__q" type="button" id="faq-q6" aria-expanded="false" aria-controls="faq-a6">
+          <button class="faq__q" type="button" id="faq-q6" aria-expanded="true" aria-controls="faq-a6">
             <span>How many leads will I get?</span>
             <span class="faq__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
           </button>
@@ -1440,7 +1677,7 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
       </div>
       <div class="faq__item">
         <h3>
-          <button class="faq__q" type="button" id="faq-q7" aria-expanded="false" aria-controls="faq-a7">
+          <button class="faq__q" type="button" id="faq-q7" aria-expanded="true" aria-controls="faq-a7">
             <span>Are you selling my leads to other contractors?</span>
             <span class="faq__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
           </button>
@@ -1454,7 +1691,7 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
       </div>
       <div class="faq__item">
         <h3>
-          <button class="faq__q" type="button" id="faq-q8" aria-expanded="false" aria-controls="faq-a8">
+          <button class="faq__q" type="button" id="faq-q8" aria-expanded="true" aria-controls="faq-a8">
             <span>Do you do SEO?</span>
             <span class="faq__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
           </button>
@@ -1468,7 +1705,7 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
       </div>
       <div class="faq__item">
         <h3>
-          <button class="faq__q" type="button" id="faq-q9" aria-expanded="false" aria-controls="faq-a9">
+          <button class="faq__q" type="button" id="faq-q9" aria-expanded="true" aria-controls="faq-a9">
             <span>Who owns the website and the domain?</span>
             <span class="faq__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
           </button>
@@ -1482,7 +1719,7 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
       </div>
       <div class="faq__item">
         <h3>
-          <button class="faq__q" type="button" id="faq-q10" aria-expanded="false" aria-controls="faq-a10">
+          <button class="faq__q" type="button" id="faq-q10" aria-expanded="true" aria-controls="faq-a10">
             <span>Is there a contract on the website?</span>
             <span class="faq__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
           </button>
@@ -1496,7 +1733,7 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
       </div>
       <div class="faq__item">
         <h3>
-          <button class="faq__q" type="button" id="faq-q11" aria-expanded="false" aria-controls="faq-a11">
+          <button class="faq__q" type="button" id="faq-q11" aria-expanded="true" aria-controls="faq-a11">
             <span>How long until my website is live?</span>
             <span class="faq__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
           </button>
@@ -1510,7 +1747,7 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
       </div>
       <div class="faq__item">
         <h3>
-          <button class="faq__q" type="button" id="faq-q12" aria-expanded="false" aria-controls="faq-a12">
+          <button class="faq__q" type="button" id="faq-q12" aria-expanded="true" aria-controls="faq-a12">
             <span>Who will I actually be working with?</span>
             <span class="faq__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
           </button>
@@ -1531,6 +1768,7 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
   <span class="cta__glow" aria-hidden="true"></span>
   <div class="container cta__inner">
     <div>
+      <p class="eyebrow section-label">07 / Let’s talk</p>
       <h2>Tell us about your business. We&rsquo;ll show you the plan.</h2>
       <p class="cta__lede">Send your name, number and business. We&rsquo;ll call back with a plan for your ads: which jobs, which towns, and exactly what a month would cost. Need a website too? We&rsquo;ll build you a free demo first.</p>
       <ul class="cta__list">
@@ -1542,7 +1780,7 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
 
     <!-- Netlify Forms: submissions appear in Netlify under Forms > strategy-call (form detection must be on).
          Without JS the form posts natively; with JS it posts in place and shows a status message. -->
-    <form class="form" id="demoForm" name="strategy-call" method="POST" action="/" data-netlify="true" netlify-honeypot="company-website" novalidate>
+    <form class="form" id="demoForm" name="strategy-call" method="POST" action="/" data-netlify="true" netlify-honeypot="company-website">
       <input type="hidden" name="form-name" value="strategy-call">
       <p class="hp" aria-hidden="true"><label>Leave this empty <input name="company-website" tabindex="-1" autocomplete="off"></label></p>
       <h3>Book your free strategy call</h3>
@@ -1665,9 +1903,15 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
 (function(){
   "use strict";
   var doc = document.documentElement;
-  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+  var reduce = motionQuery.matches;
   var hasIO = "IntersectionObserver" in window;
   var each = function(list, fn){ Array.prototype.forEach.call(list, fn); };
+  var motionUpdates = [];
+  var watchMedia = function(query, fn){
+    if (query.addEventListener) query.addEventListener("change", fn);
+    else if (query.addListener) query.addListener(fn);
+  };
   if (hasIO) doc.classList.add("io");
 
   var y = document.getElementById("year");
@@ -1679,7 +1923,7 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
   onScroll();
   window.addEventListener("scroll", onScroll, {passive:true});
 
-  /* ---------- mobile nav ---------- */
+  /* ---------- mobile nav: collapse only after controls are ready ---------- */
   var toggle = document.getElementById("navtoggle");
   var nav = document.getElementById("nav");
   var setNav = function(open){
@@ -1695,10 +1939,11 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
   document.addEventListener("click", function(e){
     if (header.classList.contains("open") && !e.target.closest(".header")) setNav(false);
   });
-  /* tabbing out of the open menu closes it, so focus never sits behind the overlay */
   header.addEventListener("focusout", function(e){
     if (header.classList.contains("open") && e.relatedTarget && !header.contains(e.relatedTarget)) setNav(false);
   });
+  watchMedia(window.matchMedia("(min-width: 901px)"), function(e){ if (e.matches) setNav(false); });
+  doc.classList.add("nav-ready");
 
   /* ---------- nav: one indicator that travels to the section in view ---------- */
   var navLinks = Array.prototype.slice.call(nav.querySelectorAll("a"));
@@ -1736,31 +1981,60 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
   window.addEventListener("resize", function(){ placeInd(current); });
 
   /* ---------- moments that play once when they arrive ---------- */
-  /* Keyboard access settles the pills permanently, including before their arrival. */
   var trustRow = document.querySelector(".trust__row");
-  if (trustRow){
-    trustRow.addEventListener("focusin", function(){ trustRow.classList.add("in", "is-static"); });
-  }
   var moments = document.querySelectorAll(".steps, .trust__row");
+  var arrive = null;
+  var settleMoment = function(el){
+    el.classList.add("in", "is-static");
+    if (arrive) arrive.unobserve(el);
+  };
+  if (trustRow) trustRow.addEventListener("focusin", function(){ settleMoment(trustRow); });
   if (!hasIO || reduce){
-    each(moments, function(el){ el.classList.add("in"); });
+    each(moments, settleMoment);
   } else {
-    var arrive = new IntersectionObserver(function(entries){
+    arrive = new IntersectionObserver(function(entries){
       entries.forEach(function(e){
         if (e.isIntersecting){ e.target.classList.add("in"); arrive.unobserve(e.target); }
       });
     }, {rootMargin:"0px 0px -12% 0px", threshold:0.2});
     each(moments, function(el){ arrive.observe(el); });
   }
+  motionUpdates.push(function(){ if (reduce) each(moments, settleMoment); });
 
-  /* ---------- background loops stop when offscreen ---------- */
-  if (hasIO){
-    each(document.querySelectorAll(".hero, .cta"), function(sec){
-      new IntersectionObserver(function(es){ sec.classList.toggle("is-paused", !es[0].isIntersecting); }).observe(sec);
+  /* ---------- restrained reveals: never hide content already in view ---------- */
+  var revealItems = document.querySelectorAll("[data-reveal]");
+  var revealObserver = null;
+  var settleReveal = function(el){
+    el.classList.add("in", "is-static");
+    if (revealObserver) revealObserver.unobserve(el);
+  };
+  if (hasIO && !reduce){
+    revealObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){ e.target.classList.add("in"); revealObserver.unobserve(e.target); }
+      });
+    }, {rootMargin:"0px 0px -6% 0px", threshold:0.08});
+    each(revealItems, function(el){
+      if (el.getBoundingClientRect().top >= window.innerHeight && !el.contains(document.activeElement)){
+        el.classList.add("reveal-ready");
+        revealObserver.observe(el);
+      } else {
+        settleReveal(el);
+      }
     });
+  } else {
+    each(revealItems, settleReveal);
   }
+  document.addEventListener("focusin", function(e){
+    var el = e.target.closest("[data-reveal]");
+    while (el){
+      settleReveal(el);
+      el = el.parentElement && el.parentElement.closest("[data-reveal]");
+    }
+  });
+  motionUpdates.push(function(){ if (reduce) each(revealItems, settleReveal); });
 
-  /* ---------- mobile CTA bar: only when no other strategy-call CTA (hero, trust strip, contact form) is on screen ---------- */
+  /* ---------- mobile CTA bar: hide while the hero, trust CTA or contact section is visible ---------- */
   var mcta = document.getElementById("mcta");
   var ctaWatch = [document.querySelector(".hero__ctas"), document.querySelector(".trust__cta"), document.getElementById("start")].filter(Boolean);
   if (mcta && hasIO && ctaWatch.length){
@@ -1775,11 +2049,10 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
   }
 
   /* ---------- hero lead path (EXAMPLE content, not client data) ---------- */
-  /* pause/play icons shared by the demo and the logo loop */
   var icPause = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>';
   var icPlay = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5.5v13a1 1 0 001.5.86l11-6.5a1 1 0 000-1.72l-11-6.5A1 1 0 007 5.5z"/></svg>';
   var flow = document.getElementById("flow");
-  if (flow && !reduce){
+  if (flow){
     var leads = [
       {trade:"HVAC",       ad:"AC blowing warm air? Same-day repair", job:"AC repair", slot:"Tue · 9:00 AM"},
       {trade:"Roofing",    ad:"Hail hit your roof? Free inspection",  job:"Roof inspection",     slot:"Wed · 1:30 PM"},
@@ -1791,7 +2064,8 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
     var fill = flow.querySelector(".flow__fill");
     var pulse = flow.querySelector(".flow__pulse");
     var ring = flow.querySelector("[data-ring]");
-    var idx = 0, timers = [], running = false, onScreen = true, railTop = 0, railH = 1;
+    var idx = 0, timers = [], flowAnimations = [], running = false, onScreen = !hasIO, railTop = 0, railH = 1;
+    var paused = false;
 
     var centerOf = function(step){ var ic = step.querySelector(".flow__ic"); return ic.offsetTop + ic.offsetHeight / 2; };
     var layoutRail = function(){
@@ -1801,20 +2075,24 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
       rail.style.height = railH + "px";
     };
     var later = function(fn, ms){ timers.push(setTimeout(fn, ms)); };
-    var stop = function(){ timers.forEach(clearTimeout); timers = []; running = false; };
+    var stop = function(){
+      timers.forEach(clearTimeout); timers = []; running = false;
+      flowAnimations.forEach(function(animation){ animation.cancel(); }); flowAnimations = [];
+      flow.classList.remove("is-swapping");
+    };
     var light = function(n){
       steps[n].classList.add("is-on");
       if (n === 1 && ring && ring.animate){
-        ring.animate([{transform:"rotate(0deg)"},{transform:"rotate(-14deg)"},{transform:"rotate(11deg)"},{transform:"rotate(-7deg)"},{transform:"rotate(0deg)"}],
-                     {duration:640, easing:"cubic-bezier(.33,1,.68,1)"});
+        flowAnimations.push(ring.animate([{transform:"rotate(0deg)"},{transform:"rotate(-14deg)"},{transform:"rotate(11deg)"},{transform:"rotate(-7deg)"},{transform:"rotate(0deg)"}],
+                     {duration:640, easing:"cubic-bezier(.33,1,.68,1)"}));
       }
     };
     var travel = function(a, b){
       var y0 = centerOf(steps[a]) - railTop, y1 = centerOf(steps[b]) - railTop;
       fill.style.transform = "scaleY(" + (y1 / railH) + ")";
       if (pulse.animate){
-        pulse.animate([{transform:"translateY(" + y0 + "px)", opacity:0}, {opacity:1, offset:.2}, {opacity:1, offset:.8}, {transform:"translateY(" + y1 + "px)", opacity:0}],
-                      {duration:600, easing:"cubic-bezier(.16,1,.3,1)"});
+        flowAnimations.push(pulse.animate([{transform:"translateY(" + y0 + "px)", opacity:0}, {opacity:1, offset:.2}, {opacity:1, offset:.8}, {transform:"translateY(" + y1 + "px)", opacity:0}],
+                      {duration:600, easing:"cubic-bezier(.16,1,.3,1)"}));
       }
     };
     var setLead = function(d){ each(flow.querySelectorAll("[data-f]"), function(el){ el.textContent = d[el.getAttribute("data-f")]; }); };
@@ -1837,43 +2115,53 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
         }, 220);
       }, 6800);
     };
-    var paused = false;
-    var maybeRun = function(){ if (onScreen && !document.hidden && !running && !paused) run(); };
+    var maybeRun = function(){ if (onScreen && !document.hidden && !reduce && !running && !paused) run(); };
 
-    /* pause control: stops the loop and the ambient glows, shows the static finished path */
+    /* Pause and reduced motion settle to the complete, readable path. */
     var foot = flow.querySelector(".flow__foot");
     var pauseBtn = document.createElement("button");
     var setPauseBtn = function(){
       pauseBtn.innerHTML = (paused ? icPlay : icPause) + (paused ? "Play" : "Pause");
       pauseBtn.setAttribute("aria-label", paused ? "Play the example animation" : "Pause the example animation");
+      pauseBtn.hidden = reduce;
     };
-    pauseBtn.type = "button"; pauseBtn.className = "pause-btn"; setPauseBtn();
-    if (foot) foot.appendChild(pauseBtn);
+    var syncFlow = function(){
+      if (reduce || paused){
+        stop(); flow.classList.remove("is-live");
+        each(steps, function(st){ st.classList.add("is-on"); });
+      } else {
+        flow.classList.add("is-live");
+        layoutRail(); maybeRun();
+      }
+      setPauseBtn();
+    };
+    pauseBtn.type = "button"; pauseBtn.className = "pause-btn";
     pauseBtn.addEventListener("click", function(){
       paused = !paused;
-      document.documentElement.classList.toggle("motion-off", paused);
-      if (paused){ stop(); flow.classList.remove("is-live"); }
-      else { flow.classList.add("is-live"); layoutRail(); maybeRun(); }
-      setPauseBtn();
+      doc.classList.toggle("motion-off", paused);
+      syncFlow();
     });
-
-    flow.classList.add("is-live");
-    layoutRail();
+    if (foot) foot.appendChild(pauseBtn);
     window.addEventListener("resize", layoutRail);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(layoutRail);
     document.addEventListener("visibilitychange", function(){ if (document.hidden) stop(); else maybeRun(); });
     if (hasIO){
       new IntersectionObserver(function(es){ onScreen = es[0].isIntersecting; if (onScreen) maybeRun(); else stop(); }).observe(flow);
-    } else {
-      run();
     }
+    motionUpdates.push(syncFlow);
+    syncFlow();
   }
 
   /* ---------- client logos: a still row until there are enough to loop (data-min) ---------- */
   var marquee = document.querySelector("[data-marquee]");
   var mTrack = marquee && marquee.querySelector(".marquee__track");
-  if (mTrack && !reduce && mTrack.children.length >= (parseInt(marquee.getAttribute("data-min"), 10) || 5)){
-    var fillMarquee = function(){
+  if (mTrack && mTrack.children.length >= (parseInt(marquee.getAttribute("data-min"), 10) || 5)){
+    var clearMarquee = function(){
       each(marquee.querySelectorAll(".marquee__track[aria-hidden]"), function(c){ c.parentNode.removeChild(c); });
+    };
+    var fillMarquee = function(){
+      clearMarquee();
+      if (reduce) return;
       var w = mTrack.offsetWidth || 1;
       marquee.style.setProperty("--marquee-dur", Math.round(w / 45) + "s");
       for (var n = Math.ceil(marquee.clientWidth / w); n > 0; n--){
@@ -1883,18 +2171,27 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
         marquee.appendChild(copy);
       }
     };
-    marquee.classList.add("is-looping");
-    fillMarquee();
-    var mTimer; window.addEventListener("resize", function(){ clearTimeout(mTimer); mTimer = setTimeout(fillMarquee, 200); });
+    var mTimer;
+    window.addEventListener("resize", function(){ clearTimeout(mTimer); if (!reduce) mTimer = setTimeout(fillMarquee, 200); });
     var mPaused = false, mBtn = document.createElement("button");
     var drawM = function(){
       mBtn.innerHTML = (mPaused ? icPlay : icPause) + (mPaused ? "Play" : "Pause");
       mBtn.setAttribute("aria-label", mPaused ? "Play the logo scroll" : "Pause the logo scroll");
+      mBtn.hidden = reduce;
     };
-    mBtn.type = "button"; mBtn.className = "pause-btn"; drawM();
-    mBtn.addEventListener("click", function(){ mPaused = !mPaused; marquee.classList.toggle("is-paused", mPaused); drawM(); });
+    var syncMarquee = function(){
+      clearTimeout(mTimer);
+      marquee.classList.toggle("is-looping", !reduce);
+      marquee.classList.toggle("is-paused", mPaused || document.hidden || reduce);
+      fillMarquee(); drawM();
+    };
+    mBtn.type = "button"; mBtn.className = "pause-btn";
+    mBtn.addEventListener("click", function(){ mPaused = !mPaused; marquee.classList.toggle("is-paused", mPaused || document.hidden); drawM(); });
     var mFoot = document.querySelector(".clients__foot");
     if (mFoot) mFoot.appendChild(mBtn);
+    document.addEventListener("visibilitychange", function(){ marquee.classList.toggle("is-paused", mPaused || document.hidden || reduce); });
+    motionUpdates.push(syncMarquee);
+    syncMarquee();
   }
 
   /* ---------- AI Website Chatbot preview (front-end only; not wired to a live backend) ---------- */
@@ -1910,17 +2207,33 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
     chatBtn.addEventListener("click", function(){ setChat(chatPanel.hidden, true); });
     chatClose.addEventListener("click", function(){ setChat(false, true); });
     chatPanel.addEventListener("keydown", function(e){ if (e.key === "Escape") setChat(false, true); });
-    chatPanel.querySelector(".chatw__foot a").addEventListener("click", function(){ setChat(false, false); });
+    chatPanel.querySelector(".chatw__foot a").addEventListener("click", function(){
+      setChat(false, false);
+      /* Let the native #start link scroll, then move focus out of the hidden dialog. */
+      requestAnimationFrame(function(){
+        var destination = document.querySelector("#demoForm h3") || document.getElementById("f-name");
+        if (destination){
+          if (!destination.hasAttribute("tabindex") && destination.tagName !== "INPUT") destination.setAttribute("tabindex", "-1");
+          destination.focus({preventScroll:true});
+        }
+      });
+    });
   }
 
-  /* ---------- FAQ accordion ---------- */
-  each(document.querySelectorAll(".faq__q"), function(btn){
-    btn.addEventListener("click", function(){
-      var open = btn.getAttribute("aria-expanded") !== "true";
-      btn.setAttribute("aria-expanded", String(open));
+  /* ---------- FAQ accordion: answers stay visible until handlers are attached ---------- */
+  each(document.querySelectorAll(".faq"), function(faq){
+    each(faq.querySelectorAll(".faq__q"), function(btn){
       var item = btn.closest(".faq__item");
-      if (item) item.classList.toggle("is-open", open);
+      var answer = document.getElementById(btn.getAttribute("aria-controls"));
+      var setAnswer = function(open){
+        btn.setAttribute("aria-expanded", String(open));
+        if (item) item.classList.toggle("is-open", open);
+        if (answer) answer.setAttribute("aria-hidden", String(!open));
+      };
+      btn.addEventListener("click", function(){ setAnswer(btn.getAttribute("aria-expanded") !== "true"); });
+      setAnswer(false);
     });
+    faq.classList.add("is-enhanced");
   });
 
   /* ---------- strategy-call form (Netlify Forms) ---------- */
@@ -1928,38 +2241,116 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
   var status = document.getElementById("formStatus");
   var btnLabel = document.getElementById("formBtnLabel");
   var labels = {ads:"Book Your Free Strategy Call", website:"See my demo site", receptionist:"Ask about the receptionist", strategy:"Get my growth plan", mix:"Get my plan"};
-  each(form.querySelectorAll('input[name="interest"]'), function(r){
-    r.addEventListener("change", function(){ if (r.checked && btnLabel) btnLabel.textContent = labels[r.value]; });
-  });
-  each(form.querySelectorAll("input[required]"), function(i){
-    i.addEventListener("input", function(){ if (i.value.trim()){ i.removeAttribute("aria-invalid"); i.removeAttribute("aria-describedby"); } });
-  });
-  form.addEventListener("submit", function(e){
-    e.preventDefault();
-    var missing = Array.prototype.filter.call(form.querySelectorAll("input[required]"), function(i){ return !i.value.trim(); });
-    each(form.querySelectorAll("input[required]"), function(i){ i.removeAttribute("aria-invalid"); i.removeAttribute("aria-describedby"); });
-    if (missing.length){
-      var lbl = (missing[0].previousElementSibling.textContent || "details").toLowerCase().replace(/^your\s+/, "");
-      status.textContent = "Add your " + lbl + " and we'll get started.";
-      missing.forEach(function(i){ i.setAttribute("aria-invalid", "true"); i.setAttribute("aria-describedby", "formStatus"); });
-      missing[0].focus();
-      return;
-    }
-    var submitBtn = form.querySelector('button[type="submit"]');
-    submitBtn.disabled = true;
-    status.textContent = "Sending…";
-    fetch(form.getAttribute("action") || "/", {
-      method: "POST",
-      headers: {"Content-Type": "application/x-www-form-urlencoded"},
-      body: new URLSearchParams(new FormData(form)).toString()
-    }).then(function(r){
-      if (!r.ok) throw new Error("HTTP " + r.status);
-      form.reset();
-      if (btnLabel) btnLabel.textContent = labels.ads;
-      status.textContent = "Thanks! We got it and we'll call you soon.";
-    }).catch(function(){
-      status.textContent = "That didn't go through. Please try again in a minute.";
-    }).then(function(){ submitBtn.disabled = false; });
+  if (form){
+    each(form.querySelectorAll('input[name="interest"]'), function(r){
+      r.addEventListener("change", function(){ if (r.checked && btnLabel) btnLabel.textContent = labels[r.value]; });
+    });
+    each(form.querySelectorAll("input[required]"), function(i){
+      i.addEventListener("input", function(){ if (i.value.trim()){ i.removeAttribute("aria-invalid"); i.removeAttribute("aria-describedby"); } });
+    });
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+      if (form.getAttribute("aria-busy") === "true") return;
+      var missing = Array.prototype.filter.call(form.querySelectorAll("input[required]"), function(i){ return !i.value.trim(); });
+      each(form.querySelectorAll("input[required]"), function(i){ i.removeAttribute("aria-invalid"); i.removeAttribute("aria-describedby"); });
+      if (missing.length){
+        var lbl = (missing[0].previousElementSibling.textContent || "details").toLowerCase().replace(/^your\s+/, "");
+        status.textContent = "Add your " + lbl + " and we'll get started.";
+        missing.forEach(function(i){ i.setAttribute("aria-invalid", "true"); i.setAttribute("aria-describedby", "formStatus"); });
+        missing[0].focus();
+        return;
+      }
+      var submitBtn = form.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      form.setAttribute("aria-busy", "true");
+      status.textContent = "Sending…";
+      var controller = "AbortController" in window ? new AbortController() : null;
+      var requestTimer;
+      var request = new Promise(function(resolve, reject){
+        requestTimer = setTimeout(function(){
+          if (controller) controller.abort();
+          reject(new Error("Request timed out"));
+        }, 12000);
+        var options = {
+          method: "POST",
+          headers: {"Content-Type": "application/x-www-form-urlencoded"},
+          body: new URLSearchParams(new FormData(form)).toString()
+        };
+        if (controller) options.signal = controller.signal;
+        fetch(form.getAttribute("action") || "/", options).then(resolve, reject);
+      });
+      request.then(function(r){
+        if (!r.ok) throw new Error("HTTP " + r.status);
+        form.reset();
+        if (btnLabel) btnLabel.textContent = labels.ads;
+        status.textContent = "Thanks! We got it and we'll call you soon.";
+      }).catch(function(){
+        status.textContent = "That didn't go through. Please try again in a minute.";
+      }).then(function(){
+        clearTimeout(requestTimer);
+        submitBtn.disabled = false;
+        form.removeAttribute("aria-busy");
+      });
+    });
+    form.noValidate = true;
+  }
+
+  /* ---------- a native illustration of this site's responsive layout ---------- */
+  var sitePreview = document.getElementById("site-preview");
+  if (sitePreview){
+    var previewControls = sitePreview.querySelector(".preview-switch");
+    var previewSurface = sitePreview.querySelector(".mini-site");
+    var previewAnimation = null;
+    each(previewControls.querySelectorAll("button"), function(button){
+      button.addEventListener("click", function(){
+        if (button.getAttribute("aria-pressed") === "true") return;
+        sitePreview.classList.toggle("is-mobile", button.getAttribute("data-preview") === "mobile");
+        each(previewControls.querySelectorAll("button"), function(item){ item.setAttribute("aria-pressed", String(item === button)); });
+        if (previewAnimation) previewAnimation.cancel();
+        if (!reduce && previewSurface.animate) previewAnimation = previewSurface.animate(
+          [{opacity:.5,transform:"translateY(4px)"},{opacity:1,transform:"none"}],
+          {duration:280,easing:"cubic-bezier(.16,1,.3,1)"});
+      });
+    });
+    previewControls.hidden = false;
+    motionUpdates.push(function(){ if (previewAnimation) previewAnimation.cancel(); });
+  }
+
+  /* ---------- hero depth: pointer input only; no continuous render loop ---------- */
+  var heroVisual = document.querySelector(".hero__visual");
+  var heroStage = document.querySelector(".hero__stage");
+  var depthQuery = window.matchMedia("(hover:hover) and (pointer:fine) and (min-width:1041px)");
+  if (heroVisual && heroStage){
+    var depthFrame = 0, depthRect = null, depthX = 0, depthY = 0;
+    var resetDepth = function(){
+      cancelAnimationFrame(depthFrame); depthFrame = 0; depthRect = null;
+      heroStage.style.removeProperty("--depth-x"); heroStage.style.removeProperty("--depth-y");
+    };
+    heroVisual.addEventListener("pointerenter", function(){ depthRect = heroVisual.getBoundingClientRect(); });
+    heroVisual.addEventListener("pointermove", function(e){
+      if (reduce || !depthQuery.matches || document.hidden || doc.classList.contains("motion-off")) return;
+      if (!depthRect) depthRect = heroVisual.getBoundingClientRect();
+      depthX = Math.max(-1, Math.min(1, (e.clientX - depthRect.left) / depthRect.width * 2 - 1));
+      depthY = Math.max(-1, Math.min(1, (e.clientY - depthRect.top) / depthRect.height * 2 - 1));
+      if (!depthFrame) depthFrame = requestAnimationFrame(function(){
+        heroStage.style.setProperty("--depth-x", (-depthY * 1.4).toFixed(2) + "deg");
+        heroStage.style.setProperty("--depth-y", (depthX * 2).toFixed(2) + "deg");
+        depthFrame = 0;
+      });
+    });
+    heroVisual.addEventListener("pointerleave", resetDepth);
+    heroVisual.addEventListener("focusin", resetDepth);
+    window.addEventListener("scroll", function(){ if (depthRect) resetDepth(); }, {passive:true});
+    window.addEventListener("resize", resetDepth);
+    document.addEventListener("visibilitychange", resetDepth);
+    watchMedia(depthQuery, resetDepth);
+    motionUpdates.push(resetDepth);
+  }
+
+  /* Preference changes settle current motion without reloading or replaying reveals. */
+  watchMedia(motionQuery, function(e){
+    reduce = e.matches;
+    motionUpdates.forEach(function(update){ update(); });
   });
 })();
 </script>
