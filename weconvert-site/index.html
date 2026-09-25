@@ -535,6 +535,9 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
 .why-sec .point{border-top-color:var(--line-d)}
 .why-sec .point h3{color:var(--on-d)}
 .why-sec .point p{color:var(--on-d2)}
+/* ember, not brick: brick red on charcoal is 3.06:1 */
+.why-sec .point .hl{color:var(--ember)}
+.why-sec .point a{color:var(--on-d)}
 .why-sec .cmp{background:var(--card-d);border-color:var(--line-d);box-shadow:var(--shadow-d)}
 .why-sec .cmp caption{color:var(--on-d);border-bottom-color:var(--line-d)}
 .why-sec .cmp th,.why-sec .cmp td{border-bottom-color:var(--line-d)}
@@ -1495,6 +1498,10 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
     <div class="why" data-reveal>
       <div class="why__points">
         <div class="point">
+          <h3>5 leads in your first 30 days, or <span class="hl">the next 30 are free</span>.</h3>
+          <p>If we don&rsquo;t generate you at least 5 leads in your first 30 days, we run the next 30 days free. It applies at our recommended minimum ad spend, and a lead means a real call or form from a prospect in your service area. <a href="#faq-q6">Full terms in the FAQ</a>.</p>
+        </div>
+        <div class="point">
           <h3>You deal with the people doing the work.</h3>
           <p>There&rsquo;s no account manager relaying messages and no handoff after you sign, and our founder personally oversees every project.</p>
         </div>
@@ -1519,6 +1526,7 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
             <tr><th scope="col">What you&rsquo;re deciding</th><th scope="col">Typical agency</th><th scope="col">West Converts</th></tr>
           </thead>
           <tbody>
+            <tr><th scope="row">If the leads don&rsquo;t come</th><td><span class="ic no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>You keep paying</span></td><td class="yes"><span class="ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Next 30 days free</span></td></tr>
             <tr><th scope="row">Who you actually talk to</th><td><span class="ic no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>Whoever&rsquo;s assigned</span></td><td class="yes"><span class="ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>The people doing the work</span></td></tr>
             <tr><th scope="row">Where your leads go</th><td><span class="ic no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>Sometimes a shared lead pool</span></td><td class="yes"><span class="ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Straight to your phone</span></td></tr>
             <tr><th scope="row">How ads are billed</th><td><span class="ic no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>A cut of your ad spend</span></td><td class="yes"><span class="ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>A quoted monthly fee</span></td></tr>
