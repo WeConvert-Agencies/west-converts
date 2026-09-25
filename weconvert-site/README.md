@@ -13,14 +13,28 @@ and `shots/` the stage-by-stage verification renders.
 
 Product truth (who it's for, what we claim and never claim) lives in `../PRODUCT.md`.
 
-## Look (redesign, 2026-09)
+## Look (redesign 2026-09; design pass 2026-09-24)
 
 - **Palette:** charcoal `#0A0A0A` and white/stone neutrals, one deep brick-red accent `#B91C1C`
   (hover `#991B1B`). A lighter "ember" `#D85A5A` is used only for red text on charcoal.
-- **Type:** Archivo throughout, 800-weight headlines (36–56px), 16–18px body.
-- **Sections, in order:** Hero (with the "How a lead reaches you" demo) → Services → How it works →
-  Why us + comparison → Founder → Clients ("You're in good company") → FAQ → Final CTA + form.
+- **Type:** Archivo throughout, 800-weight headlines (38–72px fluid; h2 30–56px), 16–18px body.
+  Ledes are measured in `ch`, not rem, so line length holds at every width.
+- **Sections, in order:** Hero (with the "How a lead reaches you" demo) → Services → ROI calculator
+  ("Let's do the math") → How it works → Why us + comparison → Founder → Clients ("You're in good
+  company") → FAQ → Final CTA + form. Section labels are numbered 01–08; adding a section means
+  renumbering the ones after it (`tools/check-site.py` enforces the sequence).
+- **ROI calculator:** vanilla JS in the main script. Job value × close rate × the fixed 5 and 14
+  leads a month (`LEADS_LOW`/`LEADS_HIGH`), each end rounded to the nearest $100, so the defaults
+  ($2,500, 30%) read $3,800 – $10,500. Typed values are clamped; blank or invalid input falls back to
+  the default. The visible figure updates instantly; screen readers get a hidden `aria-live` copy on
+  a 300ms debounce. With JS off it shows the default range.
   Footer carries the service area.
+- **Width:** the container is 1200px up to 1280px and 1360px above it, where section headers also
+  split into a two-column arrangement (heading left, lede right behind a hairline rule) and the FAQ
+  becomes heading-left / questions-right.
+- **Surfaces:** one system — `--r-lg` radius, `--shadow-sm` on light cards, `--shadow-d` on dark
+  ones, `--feedback`/`--lift` for every hover and press. Dark and light sections meet on gradient
+  seams rather than 1px borders.
 - **Region** (Fort Collins, Loveland, Greeley…) appears only in the founder section and the footer.
 - **No public pricing.** Every service is "Custom quote" and routes to the strategy call.
 
@@ -67,7 +81,9 @@ Every one of these is marked with a `PLACEHOLDER` or `TESTIMONIAL SLOT` comment 
   background glows).
 - **Client logos:** a still row today. Once the band holds 5+ logos (`data-min`) it scrolls on a loop
   with fading edges, pauses on hover, and gets its own Pause button.
-- **Supporting:** staggered hero fade-up, nav indicator slide, process line draw, pill pop-in, button press.
+- **Supporting:** staggered hero fade-up, nav indicator slide, process line draw, button press, and
+  the trust pills, which now pop in when the strip arrives in view rather than on a load timer
+  (keyboard focus settles them immediately, so tabbing never races the animation).
 - **Reduced motion:** loops, slides and fades are removed; the lead path shows all three steps complete.
 
 ## Accessibility (WCAG 2.1 AA, verified in real Chrome at 320, 375 and 1440px)
@@ -85,7 +101,8 @@ Every one of these is marked with a `PLACEHOLDER` or `TESTIMONIAL SLOT` comment 
   `aria-expanded`. Chat preview opens with focus on Close, Escape closes it and returns focus.
 - **Form:** labeled fields, a real radio group, autocomplete hints. Empty submit marks every missing
   field `aria-invalid`, links it to the error message and focuses the first one; status is announced.
-- **Touch targets:** every control is ≥44×44px at 375px and 320px.
+- **Touch targets:** every control is ≥44×44px at 375px and 320px, except the lead-demo Pause
+  button at 82×32 (above the 24px WCAG 2.5.8 AA minimum, below the 44px used everywhere else).
 - **Reflow:** no horizontal scroll and nothing clipped at 320px, including the comparison table.
 - **Also:** one `h1`, no heading skips, no duplicate ids, landmarks labeled, decorative SVG hidden,
   new-tab links say so, text-spacing override doesn't clip anything, no-JS safe.

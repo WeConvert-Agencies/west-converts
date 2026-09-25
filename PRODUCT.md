@@ -54,8 +54,15 @@ the contact form at the bottom of the page.
 - NuWave Heating & Cooling Pros (Longmont, CO): **ads client only.** We did not build their website
   (nuwaveheatingandcoolingprosco.com), so never present it as our work or link to it as a build.
   Logo shown in the same band.
-- No testimonials, results, client counts, stats or years in business exist yet. Do not fabricate them;
-  testimonial slots stay clearly marked placeholders.
+- **Owner-approved performance claim (2026-09-25):** "5 to 14 calls a month at our recommended ad
+  spend", which the owner states is observed across live campaigns. The guarantee: at least 5 leads in the first
+  30 days or the next 30 days run free (at recommended minimum ad spend; a lead is a real call or form
+  from the service area; calls answered or returned; one free cycle). Used in the FAQ, Why us, and the
+  ROI calculator (constants `LEADS_LOW`/`LEADS_HIGH`). Change all four together, and keep the
+  conditions next to the guarantee wherever it appears. The calculator must say "estimate", never
+  promise.
+- Beyond that claim, no testimonials, results, client counts, stats or years in business exist yet.
+  Do not fabricate them; testimonial slots stay clearly marked placeholders.
 - No original technician photography in the repo yet; the hero photo is a labeled placeholder until
   real technician photos are supplied.
 
