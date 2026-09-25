@@ -20,9 +20,47 @@ VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link",
 SKIP_BALANCE = {"path", "rect", "circle", "line", "polyline", "polygon", "ellipse",
                 "stop", "use", "feGaussianBlur", "feOffset", "feMerge", "feMergeNode"}
 
-REQUIRED_IDS = ["top", "services", "process", "why", "about", "clients", "faq", "start"]
+REQUIRED_IDS = ["top", "services", "roi", "process", "why", "about", "clients", "faq", "start"]
 ALLOWED_HOSTS = ["fonts.googleapis.com", "fonts.gstatic.com"]
 BANNED_COPY = ["AI-powered", "AI powered", "AI-run", "AI run"]
+# The ROI calculator shows the visitor's own job values in dollars, which is not pricing,
+# but it must never promise results or show what West Converts charges.
+ROI_BANNED = [r"\bguarantee", r"\bwill earn\b", r"\byou will make\b", r"\bretainer\b",
+              r"\bfees?\b", r"<form\b", r'type="email"', r'type="tel"']
+
+
+def check_roi(src, fails):
+    m = re.search(r'<section\b[^>]*\bid="roi".*?</section>', src, re.S)
+    if not m:
+        return None  # the missing id is already reported by REQUIRED_IDS
+    sec = m.group(0)
+    order = [src.find(f'id="{i}"') for i in ("services", "roi", "process")]
+    if not order[0] < order[1] < order[2]:
+        fails.append("#roi must sit between #services and #process")
+    ranges = re.findall(r'<input\b[^>]*type="range"[^>]*>', sec)
+    numbers = re.findall(r'<input\b[^>]*type="number"[^>]*>', sec)
+    if len(ranges) != 2 or len(numbers) != 2:
+        fails.append(f"#roi needs exactly 2 range + 2 number inputs, found {len(ranges)} + {len(numbers)}")
+    for tag in ranges + numbers:
+        iid = re.search(r'\bid="([^"]+)"', tag)
+        if not iid or f'for="{iid.group(1)}"' not in sec:
+            fails.append(f"#roi input without a <label for>: {tag[:60]}")
+    for tag in ranges:
+        for attr in ("aria-valuemin", "aria-valuemax", "aria-valuenow", "aria-valuetext"):
+            if attr not in tag:
+                fails.append(f"#roi slider missing {attr}")
+    if 'aria-live="polite"' not in sec:
+        fails.append('#roi result has no aria-live="polite" region')
+    if "our recommended ad spend" not in sec:
+        fails.append("#roi lost the qualitative 'our recommended ad spend' wording")
+    if "Book Your Free Strategy Call" not in sec:
+        fails.append("#roi must reuse the existing 'Book Your Free Strategy Call' CTA")
+    for pat in ROI_BANNED:
+        if re.search(pat, sec, re.I):
+            fails.append(f"#roi contains banned wording/markup: {pat}")
+    if not re.search(r"LEADS_LOW\s*=\s*5\b", src) or not re.search(r"LEADS_HIGH\s*=\s*14\b", src):
+        fails.append("ROI constants LEADS_LOW = 5 / LEADS_HIGH = 14 not found")
+    return m
 
 
 class Structure(HTMLParser):
@@ -119,7 +157,15 @@ def main():
     for phrase in BANNED_COPY:
         if phrase.lower() in src.lower():
             fails.append(f"banned copy '{phrase}' (AI is a functional label only)")
-    prices = [m for m in re.findall(r'\$\s?\d[\d,]*', src)]
+    roi = check_roi(src, fails)
+    # price scan: everything except the calculator's own dollar values and page JS
+    # (formatting code and comments); JSON-LD stays in scope because Google reads it
+    priced = src.replace(roi.group(0), "") if roi else src
+    priced = re.sub(r'<script(?![^>]*application/ld\+json)[^>]*>.*?</script>', "", priced, flags=re.S)
+    prices = [m for m in re.findall(r'\$\s?\d[\d,]*', priced)]
+    labels = [int(n) for n in re.findall(r'section-label">\s*(\d+)\s*/', src)]
+    if labels and labels != list(range(1, len(labels) + 1)):
+        fails.append(f"section labels are not numbered 01..{len(labels):02d} in order: {labels}")
     if prices:
         fails.append(f"price-like text on the page: {', '.join(prices[:5])} (no public pricing)")
     if "PLACEHOLDER" not in src:
