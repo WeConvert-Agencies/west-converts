@@ -1,0 +1,7 @@
+1. **What changed:** [weconvert-site/index.html](</Users/Danny/WeConvert - Web Design DEMOS/weconvert-site/index.html>) — added the responsive ROI calculator, exact copy and math, synchronized inputs, default `$3,800 – $10,500`, slider accessibility attributes, and 300ms announcements. Renumbered subsequent section labels.
+
+2. **What you verified and how:** `python3 tools/check-site.py` — **PASS** after the final edit: nine sections, self-contained assets, intact CTA path, 169 KB. Edit-time assertions confirmed unrelated source remained unchanged. **NOT VERIFIED:** browser behavior, numeric edge cases, keyboard operation, screen-reader announcements, measured contrast, and 375px rendering; the spec prohibits browser verification.
+
+3. **What you are unsure about:** The spec’s supplied 5–14-lead claim conflicts with `PRODUCT.md` saying no results evidence exists; I used the task-specific copy. Its one-file restriction also conflicts with general test-extension/task-record requirements: I used the existing ROI checks and left record capture to the configured task runner.
+
+4. **What Claude must do before this ships:** Confirm evidence for the lead claim; verify numeric edge cases, keyboard and screen-reader behavior, contrast, mobile wrapping, and JavaScript-disabled rendering in real browsers. Run the full project check, confirm task records, reconcile documentation, and deploy.

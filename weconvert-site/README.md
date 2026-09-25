@@ -19,8 +19,15 @@ Product truth (who it's for, what we claim and never claim) lives in `../PRODUCT
   (hover `#991B1B`). A lighter "ember" `#D85A5A` is used only for red text on charcoal.
 - **Type:** Archivo throughout, 800-weight headlines (38–72px fluid; h2 30–56px), 16–18px body.
   Ledes are measured in `ch`, not rem, so line length holds at every width.
-- **Sections, in order:** Hero (with the "How a lead reaches you" demo) → Services → How it works →
-  Why us + comparison → Founder → Clients ("You're in good company") → FAQ → Final CTA + form.
+- **Sections, in order:** Hero (with the "How a lead reaches you" demo) → Services → ROI calculator
+  ("Let's do the math") → How it works → Why us + comparison → Founder → Clients ("You're in good
+  company") → FAQ → Final CTA + form. Section labels are numbered 01–08; adding a section means
+  renumbering the ones after it (`tools/check-site.py` enforces the sequence).
+- **ROI calculator:** vanilla JS in the main script. Job value × close rate × the fixed 5 and 14
+  leads a month (`LEADS_LOW`/`LEADS_HIGH`), each end rounded to the nearest $100, so the defaults
+  ($2,500, 30%) read $3,800 – $10,500. Typed values are clamped; blank or invalid input falls back to
+  the default. The visible figure updates instantly; screen readers get a hidden `aria-live` copy on
+  a 300ms debounce. With JS off it shows the default range.
   Footer carries the service area.
 - **Width:** the container is 1200px up to 1280px and 1360px above it, where section headers also
   split into a two-column arrangement (heading left, lede right behind a hairline rule) and the FAQ

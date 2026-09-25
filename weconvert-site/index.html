@@ -479,6 +479,48 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
   .chatw__panel{bottom:66px;max-height:calc(100dvh - 190px - env(safe-area-inset-bottom))}
 }
 
+/* ===================== ROI calculator ===================== */
+.roi-sec{background:var(--paper-2)}
+.roi{
+  display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(2rem,4vw,4rem);align-items:center;
+  padding:clamp(1.5rem,4vw,3rem);border-radius:var(--r-lg);border:1px solid var(--line-d);
+  background:var(--char);color:var(--on-d);box-shadow:var(--shadow-d);
+}
+.roi__inputs{display:grid;gap:var(--sp-7);min-width:0}
+.roi__control{display:grid;gap:var(--sp-3);min-width:0}
+.roi__head{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:var(--sp-2) var(--sp-4)}
+.roi__head label{font-size:var(--fs-sm);font-weight:600;cursor:pointer}
+.roi__head .roi__readout{color:var(--ember);font-variant-numeric:tabular-nums;white-space:nowrap}
+.roi__field{position:relative;min-width:0}
+.roi__unit{position:absolute;left:var(--sp-4);top:50%;transform:translateY(-50%);color:var(--on-d2);pointer-events:none}
+.roi__field--percent .roi__unit{left:auto;right:var(--sp-4)}
+.roi__number{
+  display:block;width:100%;min-width:0;min-height:52px;padding:.65rem var(--sp-4) .65rem 2.25rem;
+  border:1px solid var(--ui-d);border-radius:var(--r);background:var(--card-d);color:var(--on-d);
+  font:inherit;font-variant-numeric:tabular-nums;caret-color:var(--ember);color-scheme:dark;
+}
+.roi__field--percent .roi__number{padding-left:var(--sp-4);padding-right:2.5rem}
+.roi__range{display:block;width:100%;min-width:44px;height:44px;margin:0;padding:0;appearance:none;-webkit-appearance:none;background:transparent;accent-color:var(--ember);cursor:pointer}
+.roi__range::-webkit-slider-runnable-track{height:6px;border-radius:var(--r-pill);background:var(--ui-d)}
+.roi__range::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;width:24px;height:24px;margin-top:-9px;border:2px solid var(--on-d);border-radius:50%;background:var(--ember)}
+.roi__range::-moz-range-track{height:6px;border-radius:var(--r-pill);background:var(--ui-d)}
+.roi__range::-moz-range-thumb{width:20px;height:20px;border:2px solid var(--on-d);border-radius:50%;background:var(--ember)}
+.roi :focus-visible{outline-color:var(--on-d)}
+.roi__result{min-width:0;padding-left:clamp(1.5rem,3vw,3rem);border-left:1px solid var(--line-d)}
+.roi__label{font-size:var(--fs-xs);font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--on-d2);max-width:36ch}
+.roi__value{margin-top:var(--sp-4);font-family:var(--font-display);font-size:clamp(2rem,3.8vw,3.5rem);font-weight:800;letter-spacing:-.035em;word-spacing:.12em;line-height:1.15;font-variant-numeric:tabular-nums}
+.roi__value span{display:inline-block;white-space:nowrap}
+.roi__note{margin-top:var(--sp-5);font-size:var(--fs-sm);line-height:1.6;color:var(--on-d2);max-width:54ch}
+.roi__result .btn{margin-top:var(--sp-6);max-width:100%;white-space:normal;text-align:center}
+.roi__result .btn__arrow{flex:none}
+@media (max-width:900px){
+  .roi{grid-template-columns:minmax(0,1fr)}
+  .roi__result{padding:var(--sp-6) 0 0;border-left:0;border-top:1px solid var(--line-d)}
+}
+@media (max-width:480px){
+  .roi__result .btn{width:100%}
+}
+
 /* ===================== process — the line draws, each step lights as it passes ===================== */
 #process{padding-block:var(--section-y-short) var(--section-y);background:linear-gradient(180deg,var(--paper-2),var(--paper) 6rem)}
 .steps{position:relative}
@@ -1440,10 +1482,55 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
   </div>
 </section>
 
+<!-- ============================ ROI CALCULATOR ============================ -->
+<section class="section roi-sec" id="roi">
+  <div class="container">
+    <p class="eyebrow section-label">02 / Let&rsquo;s do the math</p>
+    <div class="sec-head">
+      <h2>What Are New Leads Actually Worth To You?</h2>
+      <p>Adjust the two numbers below to match your business.</p>
+    </div>
+
+    <div class="roi">
+      <div class="roi__inputs">
+        <div class="roi__control">
+          <div class="roi__head">
+            <label for="roi-job-range" id="roi-job-label">Average job value</label>
+            <label class="roi__readout" for="roi-job-number" id="roi-job-readout">$2,500</label>
+          </div>
+          <div class="roi__field">
+            <span class="roi__unit" aria-hidden="true">$</span>
+            <input class="roi__number" id="roi-job-number" type="number" min="250" max="15000" step="1" value="2500" aria-labelledby="roi-job-label">
+          </div>
+          <input class="roi__range" id="roi-job-range" type="range" min="250" max="15000" step="250" value="2500" aria-valuemin="250" aria-valuemax="15000" aria-valuenow="2500" aria-valuetext="$2,500">
+        </div>
+        <div class="roi__control">
+          <div class="roi__head">
+            <label for="roi-close-range" id="roi-close-label">How many leads do you close?</label>
+            <label class="roi__readout" for="roi-close-number" id="roi-close-readout">30%</label>
+          </div>
+          <div class="roi__field roi__field--percent">
+            <span class="roi__unit" aria-hidden="true">%</span>
+            <input class="roi__number" id="roi-close-number" type="number" min="5" max="80" step="1" value="30" aria-labelledby="roi-close-label">
+          </div>
+          <input class="roi__range" id="roi-close-range" type="range" min="5" max="80" step="5" value="30" aria-valuemin="5" aria-valuemax="80" aria-valuenow="30" aria-valuetext="30%">
+        </div>
+      </div>
+      <div class="roi__result">
+        <p class="roi__label" id="roi-result-label">Estimated monthly revenue from new leads</p>
+        <p class="roi__value"><span id="roi-low">$3,800</span> – <span id="roi-high">$10,500</span></p>
+        <p class="roi__note">Based on the 5 to 14 leads a month we&rsquo;ve seen at our recommended ad spend. This is an estimate from the numbers you entered, not a promise of results — your market, season, and how fast you return calls all move it.</p>
+        <a class="btn btn--primary btn--lg" href="#start">Book Your Free Strategy Call <svg class="btn__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <p class="sr-only" id="roi-announcement" aria-live="polite" aria-atomic="true">Estimated monthly revenue from new leads: $3,800 to $10,500</p>
+    </div>
+  </div>
+</section>
+
 <!-- ============================ PROCESS ============================ -->
 <section class="section" id="process">
   <div class="container">
-    <p class="eyebrow section-label">02 / How it works</p>
+    <p class="eyebrow section-label">03 / How it works</p>
     <div class="sec-head">
       <h2>From first call to live ads, without the runaround.</h2>
       <p>Four steps from the first call to leads coming in.</p>
@@ -1489,7 +1576,7 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
 <!-- ============================ WHY US ============================ -->
 <section class="section why-sec" id="why">
   <div class="container">
-    <p class="eyebrow section-label">03 / Why us</p>
+    <p class="eyebrow section-label">04 / Why us</p>
     <div class="sec-head">
       <h2>You&rsquo;ve probably been burned by an agency already.</h2>
       <p>Agencies that go quiet after the invoice clears. Ad budgets that disappear with nothing to show for it. Here&rsquo;s how we set this up differently.</p>
@@ -1545,7 +1632,7 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
   <div class="container">
     <div class="founder" data-reveal>
       <div>
-        <p class="eyebrow section-label">04 / About West Converts</p>
+        <p class="eyebrow section-label">05 / About West Converts</p>
         <h2 id="about-title">Founder-led, from the first call on.</h2>
         <blockquote class="founder__quote">&ldquo;We&rsquo;d rather give you a straight answer than walk you through a proposal. That&rsquo;s the whole pitch.&rdquo;</blockquote>
       </div>
@@ -1565,7 +1652,7 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
 <!-- ============================ CLIENTS ============================ -->
 <section class="clients" id="clients" aria-labelledby="clients-title">
   <div class="container">
-    <p class="eyebrow section-label">05 / Our clients</p>
+    <p class="eyebrow section-label">06 / Our clients</p>
     <h2 id="clients-title">You&rsquo;re in good company.</h2>
 
     <!-- Client logos. Add each new client as another <li> (white or light logo on a transparent PNG, base64-inlined).
@@ -1595,7 +1682,7 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
 <section class="section section--tint" id="faq">
   <div class="container">
     <div class="sec-head sec-head--center">
-      <p class="eyebrow section-label">06 / Your questions</p>
+      <p class="eyebrow section-label">07 / Your questions</p>
       <h2>The questions owners actually ask.</h2>
     </div>
     <div class="faq">
@@ -1777,7 +1864,7 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
   <span class="cta__glow" aria-hidden="true"></span>
   <div class="container cta__inner">
     <div>
-      <p class="eyebrow section-label">07 / Let’s talk</p>
+      <p class="eyebrow section-label">08 / Let’s talk</p>
       <h2>Tell us about your business. We&rsquo;ll show you the plan.</h2>
       <p class="cta__lede">Send your name, number and business. We&rsquo;ll call back with a plan for your ads: which jobs, which towns, and exactly what a month would cost. Need a website too? We&rsquo;ll build you a free demo first.</p>
       <ul class="cta__list">
@@ -1925,6 +2012,74 @@ a{text-underline-offset:.22em;text-decoration-thickness:1px}
 
   var y = document.getElementById("year");
   if (y) y.textContent = new Date().getFullYear();
+
+  /* ---------- ROI calculator: typed values stay independent of slider steps ---------- */
+  var roi = document.getElementById("roi");
+  if (roi){
+    const LEADS_LOW = 5;
+    const LEADS_HIGH = 14;
+    var roiCurrency = new Intl.NumberFormat("en-US", {style:"currency", currency:"USD", maximumFractionDigits:0});
+    var roiLow = document.getElementById("roi-low");
+    var roiHigh = document.getElementById("roi-high");
+    var roiAnnouncement = document.getElementById("roi-announcement");
+    var roiTimer;
+    var roiControls = [
+      {range:document.getElementById("roi-job-range"), number:document.getElementById("roi-job-number"), readout:document.getElementById("roi-job-readout"), format:function(value){ return roiCurrency.format(value); }},
+      {range:document.getElementById("roi-close-range"), number:document.getElementById("roi-close-number"), readout:document.getElementById("roi-close-readout"), format:function(value){ return value + "%"; }}
+    ];
+    var roiValue = function(control){
+      var value = control.number.valueAsNumber;
+      if (!Number.isFinite(value)) value = Number(control.number.defaultValue);
+      return Math.min(Number(control.number.max), Math.max(Number(control.number.min), value));
+    };
+    var renderRoi = function(announce){
+      var avgJobValue = roiValue(roiControls[0]);
+      var closeRatePercent = roiValue(roiControls[1]);
+      var closed = closeRatePercent / 100;
+      var low = LEADS_LOW * closed * avgJobValue;
+      var high = LEADS_HIGH * closed * avgJobValue;
+      low = Math.round(low / 100) * 100;
+      high = Math.round(high / 100) * 100;
+      roiLow.textContent = roiCurrency.format(low);
+      roiHigh.textContent = roiCurrency.format(high);
+      clearTimeout(roiTimer);
+      if (announce) roiTimer = setTimeout(function(){
+        roiAnnouncement.textContent = "Estimated monthly revenue from new leads: " + roiCurrency.format(low) + " to " + roiCurrency.format(high);
+      }, 300);
+    };
+    var syncRoi = function(control){
+      var value = roiValue(control);
+      control.range.value = String(value);
+      control.readout.textContent = control.format(value);
+      /* The native range may snap; its ARIA must describe its actual position. */
+      control.range.setAttribute("aria-valuemin", control.range.min);
+      control.range.setAttribute("aria-valuemax", control.range.max);
+      control.range.setAttribute("aria-valuenow", control.range.value);
+      control.range.setAttribute("aria-valuetext", control.format(Number(control.range.value)));
+    };
+    each(roiControls, function(control){
+      var fromRange = function(){
+        control.number.value = control.range.value;
+        syncRoi(control);
+        renderRoi(true);
+      };
+      var fromNumber = function(){
+        syncRoi(control);
+        renderRoi(true);
+      };
+      var normalizeNumber = function(){
+        control.number.value = String(roiValue(control));
+        fromNumber();
+      };
+      control.range.addEventListener("input", fromRange);
+      control.range.addEventListener("change", fromRange);
+      control.number.addEventListener("input", fromNumber);
+      control.number.addEventListener("change", normalizeNumber);
+      control.number.addEventListener("blur", normalizeNumber);
+      syncRoi(control);
+    });
+    renderRoi(false);
+  }
 
   /* ---------- sticky header ---------- */
   var header = document.getElementById("header");
